@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for cargo.order -->
+        <record id="seq_funeral_request" model="ir.sequence">
+            <field name="name">Funeral Request</field>
+            <field name="code">funeral.request</field>
+            <field name="prefix">REQUEST/</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</odoo>

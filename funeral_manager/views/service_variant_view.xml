@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="service_variant_form_view" model="ir.ui.view">
+            <field name="name">service.variant.form</field>
+            <field name="model">service.variant</field>
+            <field name="arch" type="xml">
+                <form string="Service Variant">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="price" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="service_variant_tree_view" model="ir.ui.view">
+            <field name="name">service.variant.tree</field>
+            <field name="model">service.variant</field>
+            <field name="arch" type="xml">
+                <tree string="Service Variant">
+                    <field name="name"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="service_variant_act_window" model="ir.actions.act_window">
+            <field name="name">Service Variant</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">service.variant</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Service Variant" id="service_variant_menu" parent="configuration_menu"
+                  action="service_variant_act_window"/>
+
+    </data>
+</odoo>
