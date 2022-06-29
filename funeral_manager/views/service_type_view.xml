@@ -33,10 +33,40 @@
                                 </group>
                             </page>
                             <page string="Configuration" name="configuration">
+                                <group string="Product Variant">
+                                    <field name="product_variant_one" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_product_1" string="Product"/>
+                                            <field name="variant_id"/>
+                                            <field name="qty"/>
+                                            <field name="price"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Product Variant">
+                                    <field name="product_variant_two" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_product_1" string="Product"/>
+                                            <field name="variant_id"/>
+                                            <field name="qty"/>
+                                            <field name="price"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Product Variant">
+                                    <field name="product_variant_three" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_product_1" string="Product"/>
+                                            <field name="variant_id"/>
+                                            <field name="qty"/>
+                                            <field name="price"/>
+                                        </tree>
+                                    </field>
+                                </group>
                                 <group>
                                     <group>
                                         <field name="supplement_out_of_hours"/>
-                                        <field name="product_product_1" string="Variant Selection"/>
+<!--                                        <field name="product_product_1" string="Variant Selection"/>-->
                                         <field name="product_product_2" string="Variant Selection"/>
                                         <field name="product_product_3" string="Variant Selection"/>
                                     </group>
