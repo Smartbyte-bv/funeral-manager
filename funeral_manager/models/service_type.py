@@ -7,10 +7,10 @@ class ServiceType(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
-    name = fields.Selection([('Begrafenis', 'Begrafenis'), ('Plechtigheid aan de urne', 'Plechtigheid aan de urne'),
-                             ('Kerkdienst aan de urne', 'Kerkdienst aan de urne'),
-                             ('Plechtigheid aan de kist', 'Plechtigheid aan de kist'),
-                             ('Enkel begraafplaats', 'Enkel begraafplaats')])
+    # name = fields.Selection([('Begrafenis', 'Begrafenis'), ('Plechtigheid aan de urne', 'Plechtigheid aan de urne'),
+    #                          ('Kerkdienst aan de urne', 'Kerkdienst aan de urne'),
+    #                          ('Plechtigheid aan de kist', 'Plechtigheid aan de kist'),
+    #                          ('Enkel begraafplaats', 'Enkel begraafplaats')])
 
     notes = fields.Char()
     line_ids = fields.One2many('service.type.line', 'service_type_id')
@@ -35,7 +35,7 @@ class ServiceTypeLine(models.Model):
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True)
+    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
 
     @api.depends('variant_id', 'product_id')
@@ -58,7 +58,7 @@ class AulaLine(models.Model):
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True)
+    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
 
     @api.depends('variant_id', 'product_id')
@@ -81,7 +81,7 @@ class PrintWorksLine(models.Model):
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True)
+    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
 
     @api.depends('variant_id', 'product_id')
