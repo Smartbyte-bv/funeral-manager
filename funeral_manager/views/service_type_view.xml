@@ -33,18 +33,6 @@
                                     </field>
                                 </group>
                             </page>
-                            <page string="Configuration" name="configuration">
-                                <group>
-                                    <group>
-                                        <field name="supplement_out_of_hours"/>
-                                    </group>
-                                    <group>
-                                        <field name="supplement_out_of_hours_price"/>
-                                    </group>
-                                </group>
-                            </page>
-                        </notebook>
-                        <notebook>
                             <page string="Aula" name="aula">
                                 <group>
                                     <field name="aula_line_ids" required="1" nolabel="1">
@@ -58,10 +46,32 @@
                                     </field>
                                 </group>
                             </page>
-<!--
-                            <page string="Configuration" name="configuration">
+                            <page string="Print Works" name="print_works">
+                                <group>
+                                    <field name="print_works_line_ids" required="1" nolabel="1">
+                                        <tree string="Service Line" editable="bottom">
+                                            <field name="product_id" required="1"/>
+                                            <field name="variant_id"/>
+                                            <field name="description"/>
+                                            <field name="qty" required="1"/>
+                                            <field name="selling_price" required="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
                             </page>
--->
+
+                            <!--
+                                                        <page string="Configuration" name="configuration">
+                                                            <group>
+                                                                <group>
+                                                                    <field name="supplement_out_of_hours"/>
+                                                                </group>
+                                                                <group>
+                                                                    <field name="supplement_out_of_hours_price"/>
+                                                                </group>
+                                                            </group>
+                                                        </page>
+                            -->
                         </notebook>
                     </sheet>
                     <div class="oe_chatter">

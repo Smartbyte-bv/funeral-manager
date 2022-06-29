@@ -33,8 +33,8 @@
                             <page string="Services">
                                 <group>
                                     <field name="funeral_service_line_id" nolabel="1">
-                                        <tree string="Service Line" editable="bottom" create="0" delete="0">
-                                            <field name="product_id" force_save="1" readonly="1"/>
+                                        <tree string="Service Line" editable="bottom">
+                                            <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
                                             <field name="variant_id" force_save="1"/>
                                             <field name="qty" force_save="1"/>
@@ -43,11 +43,13 @@
                                         </tree>
                                     </field>
                                 </group>
+<!--
                                 <group>
                                     <group>
                                         <field name="supplement_out_of_hours"/>
                                     </group>
                                 </group>
+-->
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="amount_untaxed" sum="Untaxed amount"/>
                                     <field name="amount_tax"/>
@@ -59,8 +61,8 @@
                             <page string="Aula">
                                 <group>
                                     <field name="funeral_aula_ids" nolabel="1">
-                                        <tree string="Service Line" editable="bottom" create="0" delete="0">
-                                            <field name="product_id" force_save="1" readonly="1"/>
+                                        <tree string="Aula Line">
+                                            <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
                                             <field name="variant_id" force_save="1"/>
                                             <field name="qty" force_save="1"/>
@@ -73,6 +75,26 @@
                                     <field name="aula_amount_untaxed" sum="Untaxed amount"/>
                                     <field name="aula_amount_tax"/>
                                     <field name="aula_amount_total" sum="Total amount"
+                                           class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </page>
+                            <page string="Print Works">
+                                <group>
+                                    <field name="funeral_print_works_ids" nolabel="1">
+                                        <tree string="Print Works Line" editable="bottom">
+                                            <field name="product_id" force_save="1"/>
+                                            <field name="description" force_save="1"/>
+                                            <field name="variant_id" force_save="1"/>
+                                            <field name="qty" force_save="1"/>
+                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
+                                            <field name="price" force_save="1" string="Price"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="print_works_amount_untaxed" sum="Untaxed amount"/>
+                                    <field name="print_works_amount_tax"/>
+                                    <field name="print_works_amount_total" sum="Total amount"
                                            class="oe_subtotal_footer_separator"/>
                                 </group>
                             </page>

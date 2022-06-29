@@ -34,9 +34,10 @@ class FuneralManagement(models.Model):
     service_type_id = fields.Many2one('service.type')
     funeral_service_line_id = fields.One2many('funeral.service.line', 'funeral_id')
     funeral_aula_ids = fields.One2many('funeral.aula', 'funeral_id')
-    supplement_out_of_hours = fields.Selection([('no', 'No'), ('yes', 'Yes')],
-                                               string="Supplement Saturday/out of hours", default="no",
-                                               related="service_type_id.supplement_out_of_hours", readonly=False)
+    funeral_print_works_ids = fields.One2many('funeral.print.works', 'funeral_id')
+    # supplement_out_of_hours = fields.Selection([('no', 'No'), ('yes', 'Yes')],
+    #                                            string="Supplement Saturday/out of hours", default="no",
+    #                                            related="service_type_id.supplement_out_of_hours", readonly=False)
 
     amount_untaxed = fields.Float(store=True, compute="get_total_price")
     amount_tax = fields.Float(store=True, compute="get_total_price")
@@ -45,6 +46,10 @@ class FuneralManagement(models.Model):
     aula_amount_untaxed = fields.Float(store=True, compute="aula_get_total_price")
     aula_amount_tax = fields.Float(store=True, compute="aula_get_total_price")
     aula_amount_total = fields.Float(store=True, compute="aula_get_total_price")
+
+    print_works_amount_untaxed = fields.Float(store=True, compute="aula_get_total_price")
+    print_works_amount_tax = fields.Float(store=True, compute="aula_get_total_price")
+    print_works_amount_total = fields.Float(store=True, compute="aula_get_total_price")
 
     @api.model
     def create(self, vals):
@@ -59,6 +64,9 @@ class FuneralManagement(models.Model):
                 'funeral_id': False
             })
             self.funeral_aula_ids.write({
+                'funeral_id': False
+            })
+            self.funeral_print_works_ids.write({
                 'funeral_id': False
             })
             # self.funeral_service_line_id.write({
@@ -89,13 +97,25 @@ class FuneralManagement(models.Model):
                     'product_id': line.product_id.id,
                 })
             )
+        print_works_lst = []
+        for line in self.service_type_id.print_works_line_ids:
+            print_works_lst.append(
+                (0, 0, {
+                    'description': line.description,
+                    'qty': line.qty,
+                    'depend_selling_price': line.selling_price,
+                    'variant_id': line.variant_id.id,
+                    'product_id': line.product_id.id,
+                })
+            )
         # self.write({'funeral_service_line_id': lst})
         self.write({
             'funeral_service_line_id': lst,
             'funeral_aula_ids': aula_lst,
+            'funeral_print_works_ids': print_works_lst,
         })
 
-    @api.depends('supplement_out_of_hours', 'funeral_service_line_id')
+    @api.depends('funeral_service_line_id')
     def get_total_price(self):
         for rec in self:
             total = 0.0
@@ -103,8 +123,8 @@ class FuneralManagement(models.Model):
                 line_price = rec.funeral_service_line_id.mapped(
                     'price')
                 total = sum(line_price)
-                if rec.supplement_out_of_hours == "yes":
-                    total += rec.service_type_id.supplement_out_of_hours_price
+                # if rec.supplement_out_of_hours == "yes":
+                #     total += rec.service_type_id.supplement_out_of_hours_price
                 rec.amount_untaxed = total
                 rec.amount_tax = (total * 6) / 100
                 rec.amount_total = rec.amount_untaxed + rec.amount_tax
@@ -121,6 +141,18 @@ class FuneralManagement(models.Model):
                 rec.aula_amount_tax = (total * 6) / 100
                 rec.aula_amount_total = rec.aula_amount_untaxed + rec.aula_amount_tax
 
+    @api.depends('funeral_print_works_ids')
+    def aula_get_total_price(self):
+        for rec in self:
+            total = 0.0
+            if rec.funeral_print_works_ids:
+                line_price = rec.funeral_print_works_ids.mapped(
+                    'price')
+                total = sum(line_price)
+                rec.print_works_amount_untaxed = total
+                rec.print_works_amount_tax = (total * 6) / 100
+                rec.print_works_amount_total = rec.print_works_amount_untaxed + rec.print_works_amount_tax
+
 
 class FuneralServiceLine(models.Model):
     _name = 'funeral.service.line'
@@ -128,11 +160,11 @@ class FuneralServiceLine(models.Model):
 
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
-    description = fields.Char()
     product_id = fields.Many2one('product.template')
+    description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float()
     variant_id = fields.Many2one('product.attribute.value')
-    depend_selling_price = fields.Float()
+    depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
     @api.depends('qty', 'variant_id')
@@ -147,11 +179,30 @@ class FuneralAula(models.Model):
 
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
-    description = fields.Char()
+    description = fields.Char(related="product_id.display_name", readonly=False)
     product_id = fields.Many2one('product.template')
     qty = fields.Float()
     variant_id = fields.Many2one('product.attribute.value')
-    depend_selling_price = fields.Float()
+    depend_selling_price = fields.Float(related="product_id.list_price")
+    price = fields.Float(store=True, compute="_get_selling_price")
+
+    @api.depends('qty', 'variant_id')
+    def _get_selling_price(self):
+        for rec in self:
+            rec.price = (rec.qty * (rec.depend_selling_price + rec.variant_id.variant_price))
+
+
+class FuneralPrintWorks(models.Model):
+    _name = 'funeral.print.works'
+    _description = 'Funeral Print Works'
+
+    funeral_id = fields.Many2one('funeral.management')
+    service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
+    description = fields.Char(related="product_id.display_name", readonly=False)
+    product_id = fields.Many2one('product.template')
+    qty = fields.Float()
+    variant_id = fields.Many2one('product.attribute.value')
+    depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
     @api.depends('qty', 'variant_id')
