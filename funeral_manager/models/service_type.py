@@ -7,21 +7,6 @@ class ServiceType(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
-    def _default_domain_variant_1_ids(self):
-        product_ids = self.env['product.product'].search([])
-        filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_1)
-        return [('id', 'in', filtered_product_ids.ids)]
-
-    def _default_domain_variant_2_ids(self):
-        product_ids = self.env['product.product'].search([])
-        filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_2)
-        return [('id', 'in', filtered_product_ids.ids)]
-
-    def _default_domain_variant_3_ids(self):
-        product_ids = self.env['product.product'].search([])
-        filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_3)
-        return [('id', 'in', filtered_product_ids.ids)]
-
     name = fields.Selection([('Bgrafenis', 'Begrafenis'), ('Plechtigheid aan de urne', 'Plechtigheid aan de urne'),
                              ('Kerkdienst aan de urne', 'Kerkdienst aan de urne'),
                              ('Plechtigheid aan de kist', 'Plechtigheid aan de kist'),
@@ -29,71 +14,42 @@ class ServiceType(models.Model):
 
     notes = fields.Char()
     line_ids = fields.One2many('service.type.line', 'service_type_id')
+    aula_line_ids = fields.One2many('aula.line', 'service_type_id')
     supplement_out_of_hours = fields.Selection([('no', 'No'), ('yes', 'Yes')], default='no',
                                                string="Supplement Saturday/out of hours")
     supplement_out_of_hours_price = fields.Float('Supplement Saturday/out of hours(Price)')
-    # product_product_1 = fields.Many2one('product.product', domain=lambda self: self._default_domain_variant_1_ids())
-    product_product_2 = fields.Many2one('product.product', domain=lambda self: self._default_domain_variant_2_ids())
-    product_product_3 = fields.Many2one('product.product', domain=lambda self: self._default_domain_variant_3_ids())
-    product_variant_one = fields.One2many('product.variant.one', 'service_type_id')
-    product_variant_two = fields.One2many('product.variant.two', 'service_type_id')
-    product_variant_three = fields.One2many('product.variant.three', 'service_type_id')
 
 
 class ServiceTypeLine(models.Model):
     _name = 'service.type.line'
     _description = 'Service Type Line'
 
-    product_id = fields.Many2one('product.product')
-    description = fields.Char()
-    qty = fields.Float()
-    selling_price = fields.Float()
+    product_id = fields.Many2one('product.template')
+    variant_id = fields.Many2one('product.attribute.value')
+    description = fields.Char(related="product_id.display_name", readonly=False)
+    qty = fields.Float(default=1)
+    depend_selling_price = fields.Float(related="product_id.list_price")
+    selling_price = fields.Float(compute="_get_selling_price", store=True)
     service_type_id = fields.Many2one('service.type')
 
+    @api.depends('variant_id', 'product_id')
+    def _get_selling_price(self):
+        for rec in self:
+            rec.selling_price = (rec.depend_selling_price + rec.variant_id.variant_price)
 
-class ProductVariant1(models.Model):
-    _name = 'product.variant.one'
-    _description = 'Product Variant'
+class AulaLine(models.Model):
+    _name = 'aula.line'
+    _description = 'Aula Line'
 
-    def _default_domain_variant_1_ids(self):
-        product_ids = self.env['product.product'].search([])
-        filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_1)
-        return [('id', 'in', filtered_product_ids.ids)]
-
-    product_product_1 = fields.Many2one('product.template', domain=lambda self: self._default_domain_variant_1_ids())
-    variant_id = fields.Many2one('product.template.attribute.value')
-    qty = fields.Float()
-    price = fields.Float()
+    product_id = fields.Many2one('product.template')
+    variant_id = fields.Many2one('product.attribute.value')
+    description = fields.Char(related="product_id.display_name", readonly=False)
+    qty = fields.Float(default=1)
+    depend_selling_price = fields.Float(related="product_id.list_price")
+    selling_price = fields.Float(compute="_get_selling_price", store=True)
     service_type_id = fields.Many2one('service.type')
 
-
-class ProductVariant2(models.Model):
-    _name = 'product.variant.two'
-    _description = 'Product Variant'
-
-    def _default_domain_variant_2_ids(self):
-        product_ids = self.env['product.product'].search([])
-        filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_2)
-        return [('id', 'in', filtered_product_ids.ids)]
-
-    product_product_1 = fields.Many2one('product.template', domain=lambda self: self._default_domain_variant_2_ids())
-    variant_id = fields.Many2one('product.template.attribute.value')
-    qty = fields.Float()
-    price = fields.Float()
-    service_type_id = fields.Many2one('service.type')
-
-
-class ProductVariant3(models.Model):
-    _name = 'product.variant.three'
-    _description = 'Product Variant'
-
-    def _default_domain_variant_3_ids(self):
-        product_ids = self.env['product.product'].search([])
-        filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_3)
-        return [('id', 'in', filtered_product_ids.ids)]
-
-    product_product_1 = fields.Many2one('product.template', domain=lambda self: self._default_domain_variant_3_ids())
-    variant_id = fields.Many2one('product.template.attribute.value')
-    qty = fields.Float()
-    price = fields.Float()
-    service_type_id = fields.Many2one('service.type')
+    @api.depends('variant_id', 'product_id')
+    def _get_selling_price(self):
+        for rec in self:
+            rec.selling_price = (rec.depend_selling_price + rec.variant_id.variant_price)

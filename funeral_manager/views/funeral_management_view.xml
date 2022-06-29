@@ -34,7 +34,9 @@
                                 <group>
                                     <field name="funeral_service_line_id" nolabel="1">
                                         <tree string="Service Line" editable="bottom" create="0" delete="0">
+                                            <field name="product_id" force_save="1" readonly="1"/>
                                             <field name="description" force_save="1"/>
+                                            <field name="variant_id" force_save="1"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>
@@ -42,55 +44,9 @@
                                     </field>
                                 </group>
                                 <group>
-                                    <field name="product_variant_one" nolabel="1">
-                                        <tree editable="bottom" create="0" delete="0">
-                                            <field name="product_id" string="Product"/>
-                                            <field name="variant_id"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="qty"/>
-                                            <field name="price"/>
-                                        </tree>
-                                    </field>
-                                </group>
-                                <group>
-                                    <field name="product_variant_two" nolabel="1">
-                                        <tree editable="bottom" create="0" delete="0">
-                                            <field name="product_id" string="Product"/>
-                                            <field name="variant_id"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="qty"/>
-                                            <field name="price"/>
-                                        </tree>
-                                    </field>
-                                </group>
-                                <group>
-                                    <field name="product_variant_three" nolabel="1">
-                                        <tree editable="bottom" create="0" delete="0">
-                                            <field name="product_id" string="Product"/>
-                                            <field name="variant_id"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="qty"/>
-                                            <field name="price"/>
-                                        </tree>
-                                    </field>
-                                </group>
-                                <group>
                                     <group>
                                         <field name="supplement_out_of_hours"/>
                                     </group>
-<!--
-                                    <group>
-                                        <field name="variant_selection_1" string="Variant Selection"/>
-                                        <field name="variant_selection_2" string="Variant Selection"/>
-                                        <field name="service_variant_id" string="Variant Selection"/>
-                                        <field name="product_product_1" string="Variant Selection"/>
-                                        <field name="product_product_2_price" string="Price"/>
-                                        <field name="product_product_2" string="Variant Selection"/>
-                                        <field name="product_product_2_price" string="Price"/>
-                                        <field name="product_product_3" string="Variant Selection"/>
-                                        <field name="product_product_3_price" string="Price"/>
-                                    </group>
--->
                                 </group>
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="amount_untaxed" sum="Untaxed amount"/>
@@ -99,6 +55,26 @@
                                            class="oe_subtotal_footer_separator"/>
                                 </group>
                                 <div class="oe_clear"/>
+                            </page>
+                            <page string="Aula">
+                                <group>
+                                    <field name="funeral_aula_ids" nolabel="1">
+                                        <tree string="Service Line" editable="bottom" create="0" delete="0">
+                                            <field name="product_id" force_save="1" readonly="1"/>
+                                            <field name="description" force_save="1"/>
+                                            <field name="variant_id" force_save="1"/>
+                                            <field name="qty" force_save="1"/>
+                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
+                                            <field name="price" force_save="1" string="Price"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="aula_amount_untaxed" sum="Untaxed amount"/>
+                                    <field name="aula_amount_tax"/>
+                                    <field name="aula_amount_total" sum="Total amount"
+                                           class="oe_subtotal_footer_separator"/>
+                                </group>
                             </page>
                         </notebook>
 
