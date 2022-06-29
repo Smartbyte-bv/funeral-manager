@@ -36,20 +36,20 @@
                                         <tree string="Service Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-                                            <field name="variant_id" force_save="1"/>
+                                            <field name="variant_id" widget="many2many_tags"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>
                                         </tree>
                                     </field>
                                 </group>
-<!--
-                                <group>
-                                    <group>
-                                        <field name="supplement_out_of_hours"/>
-                                    </group>
-                                </group>
--->
+                                <!--
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="supplement_out_of_hours"/>
+                                                                    </group>
+                                                                </group>
+                                -->
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="amount_untaxed" sum="Untaxed amount"/>
                                     <field name="amount_tax"/>
@@ -64,7 +64,7 @@
                                         <tree string="Aula Line">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-                                            <field name="variant_id" force_save="1"/>
+                                            <field name="variant_id" widget="many2many_tags"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>
@@ -84,7 +84,7 @@
                                         <tree string="Print Works Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-                                            <field name="variant_id" force_save="1"/>
+                                            <field name="variant_id" widget="many2many_tags"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>

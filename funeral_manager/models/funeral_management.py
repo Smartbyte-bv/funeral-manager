@@ -82,7 +82,7 @@ class FuneralManagement(models.Model):
                     'description': line.description,
                     'qty': line.qty,
                     'depend_selling_price': line.selling_price,
-                    'variant_id': line.variant_id.id,
+                    'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
                 })
             )
@@ -93,7 +93,7 @@ class FuneralManagement(models.Model):
                     'description': line.description,
                     'qty': line.qty,
                     'depend_selling_price': line.selling_price,
-                    'variant_id': line.variant_id.id,
+                    'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
                 })
             )
@@ -104,7 +104,7 @@ class FuneralManagement(models.Model):
                     'description': line.description,
                     'qty': line.qty,
                     'depend_selling_price': line.selling_price,
-                    'variant_id': line.variant_id.id,
+                    'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
                 })
             )
@@ -158,54 +158,69 @@ class FuneralServiceLine(models.Model):
     _name = 'funeral.service.line'
     _description = 'Funeral Service Line'
 
+    def _default_domain_variant_ids(self):
+        product_ids = self.env['product.template'].search([])
+        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
+        return [('id', 'in', value_ids.ids)]
+
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     product_id = fields.Many2one('product.template')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float()
-    variant_id = fields.Many2one('product.attribute.value')
+    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
     depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
     @api.depends('qty', 'variant_id')
     def _get_selling_price(self):
         for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + rec.variant_id.variant_price))
+            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
 
 
 class FuneralAula(models.Model):
     _name = 'funeral.aula'
     _description = 'Funeral Aula'
 
+    def _default_domain_variant_ids(self):
+        product_ids = self.env['product.template'].search([])
+        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
+        return [('id', 'in', value_ids.ids)]
+
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     description = fields.Char(related="product_id.display_name", readonly=False)
     product_id = fields.Many2one('product.template')
     qty = fields.Float()
-    variant_id = fields.Many2one('product.attribute.value')
+    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
     depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
     @api.depends('qty', 'variant_id')
     def _get_selling_price(self):
         for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + rec.variant_id.variant_price))
+            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
 
 
 class FuneralPrintWorks(models.Model):
     _name = 'funeral.print.works'
     _description = 'Funeral Print Works'
 
+    def _default_domain_variant_ids(self):
+        product_ids = self.env['product.template'].search([])
+        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
+        return [('id', 'in', value_ids.ids)]
+
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     description = fields.Char(related="product_id.display_name", readonly=False)
     product_id = fields.Many2one('product.template')
     qty = fields.Float()
-    variant_id = fields.Many2one('product.attribute.value')
+    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
     depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
     @api.depends('qty', 'variant_id')
     def _get_selling_price(self):
         for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + rec.variant_id.variant_price))
+            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))

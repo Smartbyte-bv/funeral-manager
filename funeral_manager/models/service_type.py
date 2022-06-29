@@ -25,8 +25,13 @@ class ServiceTypeLine(models.Model):
     _name = 'service.type.line'
     _description = 'Service Type Line'
 
+    def _default_domain_variant_ids(self):
+        product_ids = self.env['product.template'].search([])
+        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
+        return [('id', 'in', value_ids.ids)]
+
     product_id = fields.Many2one('product.template')
-    variant_id = fields.Many2one('product.attribute.value')
+    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
@@ -36,14 +41,20 @@ class ServiceTypeLine(models.Model):
     @api.depends('variant_id', 'product_id')
     def _get_selling_price(self):
         for rec in self:
-            rec.selling_price = (rec.depend_selling_price + rec.variant_id.variant_price)
+            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+
 
 class AulaLine(models.Model):
     _name = 'aula.line'
     _description = 'Aula Line'
 
+    def _default_domain_variant_ids(self):
+        product_ids = self.env['product.template'].search([])
+        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
+        return [('id', 'in', value_ids.ids)]
+
     product_id = fields.Many2one('product.template')
-    variant_id = fields.Many2one('product.attribute.value')
+    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
@@ -53,14 +64,20 @@ class AulaLine(models.Model):
     @api.depends('variant_id', 'product_id')
     def _get_selling_price(self):
         for rec in self:
-            rec.selling_price = (rec.depend_selling_price + rec.variant_id.variant_price)
+            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+
 
 class PrintWorksLine(models.Model):
     _name = 'print.works.line'
     _description = 'Print Works Line'
 
+    def _default_domain_variant_ids(self):
+        product_ids = self.env['product.template'].search([])
+        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
+        return [('id', 'in', value_ids.ids)]
+
     product_id = fields.Many2one('product.template')
-    variant_id = fields.Many2one('product.attribute.value')
+    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
@@ -70,4 +87,4 @@ class PrintWorksLine(models.Model):
     @api.depends('variant_id', 'product_id')
     def _get_selling_price(self):
         for rec in self:
-            rec.selling_price = (rec.depend_selling_price + rec.variant_id.variant_price)
+            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))

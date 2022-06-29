@@ -25,7 +25,7 @@
                                     <field name="line_ids" required="1" nolabel="1">
                                         <tree string="Service Line" editable="bottom">
                                             <field name="product_id" required="1"/>
-                                            <field name="variant_id"/>
+                                            <field name="variant_id" widget="many2many_tags"/>
                                             <field name="description"/>
                                             <field name="qty" required="1"/>
                                             <field name="selling_price" required="1"/>
@@ -38,7 +38,7 @@
                                     <field name="aula_line_ids" required="1" nolabel="1">
                                         <tree string="Service Line" editable="bottom">
                                             <field name="product_id" required="1"/>
-                                            <field name="variant_id"/>
+                                            <field name="variant_id" widget="many2many_tags"/>
                                             <field name="description"/>
                                             <field name="qty" required="1"/>
                                             <field name="selling_price" required="1"/>
@@ -51,7 +51,7 @@
                                     <field name="print_works_line_ids" required="1" nolabel="1">
                                         <tree string="Service Line" editable="bottom">
                                             <field name="product_id" required="1"/>
-                                            <field name="variant_id"/>
+                                            <field name="variant_id" widget="many2many_tags"/>
                                             <field name="description"/>
                                             <field name="qty" required="1"/>
                                             <field name="selling_price" required="1"/>
