@@ -3,3 +3,7 @@ funeral_manager.access_funeral_management,access_funeral_management,funeral_mana
 funeral_manager.access_service_type,access_service_type,funeral_manager.model_service_type,base.group_user,1,1,1,1
 funeral_manager.access_service_type_line,access_service_type_line,funeral_manager.model_service_type_line,base.group_user,1,1,1,1
 funeral_manager.access_funeral_service_line,access_funeral_service_line,funeral_manager.model_funeral_service_line,base.group_user,1,1,1,1
+funeral_manager.access_aula_line,access_aula_line,funeral_manager.model_aula_line,base.group_user,1,1,1,1
+funeral_manager.access_funeral_aula,access_funeral_aula,funeral_manager.model_funeral_aula,base.group_user,1,1,1,1
+funeral_manager.access_funeral_print_works,access_funeral_print_works,funeral_manager.model_funeral_print_works,base.group_user,1,1,1,1
+funeral_manager.access_print_works_line,access_print_works_line,funeral_manager.model_print_works_line,base.group_user,1,1,1,1
