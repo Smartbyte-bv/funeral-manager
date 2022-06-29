@@ -47,9 +47,9 @@ class FuneralManagement(models.Model):
     aula_amount_tax = fields.Float(store=True, compute="aula_get_total_price")
     aula_amount_total = fields.Float(store=True, compute="aula_get_total_price")
 
-    print_works_amount_untaxed = fields.Float(store=True, compute="aula_get_total_price")
-    print_works_amount_tax = fields.Float(store=True, compute="aula_get_total_price")
-    print_works_amount_total = fields.Float(store=True, compute="aula_get_total_price")
+    print_works_amount_untaxed = fields.Float(store=True, compute="print_works_get_total_price")
+    print_works_amount_tax = fields.Float(store=True, compute="print_works_get_total_price")
+    print_works_amount_total = fields.Float(store=True, compute="print_works_get_total_price")
 
     @api.model
     def create(self, vals):
@@ -104,7 +104,7 @@ class FuneralManagement(models.Model):
                     'description': line.description,
                     'qty': line.qty,
                     'depend_selling_price': line.selling_price,
-                    'variant_id': line.variant_id.ids,
+                    'variant_id': line.variant_id.ids   ,
                     'product_id': line.product_id.id,
                 })
             )
@@ -120,8 +120,8 @@ class FuneralManagement(models.Model):
         for rec in self:
             total = 0.0
             if rec.funeral_service_line_id:
-                line_price = rec.funeral_service_line_id.mapped(
-                    'price')
+                line_price = rec.funeral_service_line_id.mapped('price')
+                print(">>>>>>>line_price",line_price)
                 total = sum(line_price)
                 # if rec.supplement_out_of_hours == "yes":
                 #     total += rec.service_type_id.supplement_out_of_hours_price
@@ -142,7 +142,7 @@ class FuneralManagement(models.Model):
                 rec.aula_amount_total = rec.aula_amount_untaxed + rec.aula_amount_tax
 
     @api.depends('funeral_print_works_ids')
-    def aula_get_total_price(self):
+    def print_works_get_total_price(self):
         for rec in self:
             total = 0.0
             if rec.funeral_print_works_ids:
