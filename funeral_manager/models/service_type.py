@@ -7,7 +7,7 @@ class ServiceType(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
-    name = fields.Selection([('Bgrafenis', 'Begrafenis'), ('Plechtigheid aan de urne', 'Plechtigheid aan de urne'),
+    name = fields.Selection([('Begrafenis', 'Begrafenis'), ('Plechtigheid aan de urne', 'Plechtigheid aan de urne'),
                              ('Kerkdienst aan de urne', 'Kerkdienst aan de urne'),
                              ('Plechtigheid aan de kist', 'Plechtigheid aan de kist'),
                              ('Enkel begraafplaats', 'Enkel begraafplaats')])
