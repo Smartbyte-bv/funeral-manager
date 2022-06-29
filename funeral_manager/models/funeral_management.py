@@ -121,7 +121,6 @@ class FuneralManagement(models.Model):
             total = 0.0
             if rec.funeral_service_line_id:
                 line_price = rec.funeral_service_line_id.mapped('price')
-                print(">>>>>>>line_price",line_price)
                 total = sum(line_price)
                 # if rec.supplement_out_of_hours == "yes":
                 #     total += rec.service_type_id.supplement_out_of_hours_price
@@ -158,17 +157,16 @@ class FuneralServiceLine(models.Model):
     _name = 'funeral.service.line'
     _description = 'Funeral Service Line'
 
-    def _default_domain_variant_ids(self):
-        product_ids = self.env['product.template'].search([])
-        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
-        return [('id', 'in', value_ids.ids)]
 
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     product_id = fields.Many2one('product.template')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float()
-    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
+    product_template_attribute_lines = fields.One2many('product.template.attribute.line',
+                                                       related="product_id.attribute_line_ids")
+    value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
+    variant_id = fields.Many2many('product.attribute.value')
     depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
@@ -182,17 +180,15 @@ class FuneralAula(models.Model):
     _name = 'funeral.aula'
     _description = 'Funeral Aula'
 
-    def _default_domain_variant_ids(self):
-        product_ids = self.env['product.template'].search([])
-        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
-        return [('id', 'in', value_ids.ids)]
-
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     description = fields.Char(related="product_id.display_name", readonly=False)
     product_id = fields.Many2one('product.template')
     qty = fields.Float()
-    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
+    product_template_attribute_lines = fields.One2many('product.template.attribute.line',
+                                                       related="product_id.attribute_line_ids")
+    value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
+    variant_id = fields.Many2many('product.attribute.value')
     depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 
@@ -206,17 +202,15 @@ class FuneralPrintWorks(models.Model):
     _name = 'funeral.print.works'
     _description = 'Funeral Print Works'
 
-    def _default_domain_variant_ids(self):
-        product_ids = self.env['product.template'].search([])
-        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
-        return [('id', 'in', value_ids.ids)]
-
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     description = fields.Char(related="product_id.display_name", readonly=False)
     product_id = fields.Many2one('product.template')
     qty = fields.Float()
-    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
+    product_template_attribute_lines = fields.One2many('product.template.attribute.line',
+                                                       related="product_id.attribute_line_ids")
+    value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
+    variant_id = fields.Many2many('product.attribute.value')
     depend_selling_price = fields.Float(related="product_id.list_price")
     price = fields.Float(store=True, compute="_get_selling_price")
 

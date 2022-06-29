@@ -25,13 +25,12 @@ class ServiceTypeLine(models.Model):
     _name = 'service.type.line'
     _description = 'Service Type Line'
 
-    def _default_domain_variant_ids(self):
-        product_ids = self.env['product.template'].search([])
-        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
-        return [('id', 'in', value_ids.ids)]
 
     product_id = fields.Many2one('product.template')
-    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
+    product_template_attribute_lines = fields.One2many('product.template.attribute.line',
+                                                       related="product_id.attribute_line_ids")
+    value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
+    variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
@@ -48,13 +47,12 @@ class AulaLine(models.Model):
     _name = 'aula.line'
     _description = 'Aula Line'
 
-    def _default_domain_variant_ids(self):
-        product_ids = self.env['product.template'].search([])
-        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
-        return [('id', 'in', value_ids.ids)]
 
     product_id = fields.Many2one('product.template')
-    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
+    product_template_attribute_lines = fields.One2many('product.template.attribute.line',
+                                                       related="product_id.attribute_line_ids")
+    value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
+    variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")
@@ -71,13 +69,12 @@ class PrintWorksLine(models.Model):
     _name = 'print.works.line'
     _description = 'Print Works Line'
 
-    def _default_domain_variant_ids(self):
-        product_ids = self.env['product.template'].search([])
-        value_ids = product_ids.mapped('attribute_line_ids').mapped('value_ids')
-        return [('id', 'in', value_ids.ids)]
 
     product_id = fields.Many2one('product.template')
-    variant_id = fields.Many2many('product.attribute.value', domain=lambda self: self._default_domain_variant_ids())
+    product_template_attribute_lines = fields.One2many('product.template.attribute.line',
+                                                       related="product_id.attribute_line_ids")
+    value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
+    variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     depend_selling_price = fields.Float(related="product_id.list_price")

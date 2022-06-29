@@ -36,7 +36,10 @@
                                         <tree string="Service Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-                                            <field name="variant_id" widget="many2many_tags"/>
+                                            <field name="product_template_attribute_lines" invisible="1"/>
+                                            <field name="value_ids" invisible="1"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', '=', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>
@@ -61,10 +64,14 @@
                             <page string="Aula">
                                 <group>
                                     <field name="funeral_aula_ids" nolabel="1">
-                                        <tree string="Aula Line">
+                                        <tree string="Aula Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-                                            <field name="variant_id" widget="many2many_tags"/>
+
+                                            <field name="product_template_attribute_lines" invisible="1"/>
+                                            <field name="value_ids" invisible="1"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', '=', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>
@@ -84,7 +91,11 @@
                                         <tree string="Print Works Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-                                            <field name="variant_id" widget="many2many_tags"/>
+
+                                            <field name="product_template_attribute_lines" invisible="1"/>
+                                            <field name="value_ids" invisible="1"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', '=', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
                                             <field name="depend_selling_price" force_save="1" invisible="1"/>
                                             <field name="price" force_save="1" string="Price"/>
