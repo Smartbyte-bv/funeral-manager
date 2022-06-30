@@ -81,6 +81,9 @@ class FuneralManagement(models.Model):
             self.funeral_other_cost_ids.write({
                 'funeral_id': False
             })
+            self.contact_person_ids.write({
+                'funeral_id': False
+            })
             # self.funeral_service_line_id.write({
             #     'product_variant_two': False
             # })
@@ -159,13 +162,25 @@ class FuneralManagement(models.Model):
                     'taxes_id': line.taxes_id.ids,
                 })
             )
+        contact_person_lst = []
+        for line in self.service_type_id.contact_person_ids:
+            contact_person_lst.append(
+                (0, 0, {
+                    'partner_id': line.partner_id.id,
+                    'email': line.email,
+                    'phone': line.phone,
+                    'city': line.city,
+                    'country_id': line.country_id.id,
+                    'signature': line.signature,
+                })
+            )
         self.write({
             'funeral_service_line_id': lst,
             'funeral_aula_ids': aula_lst,
             'funeral_print_works_ids': print_works_lst,
             'funeral_transportation_ids': transportation_lst,
             'funeral_coffee_table_ids': coffee_table_lst,
-            'contact_person_ids': self.service_type_id.contact_person_ids,
+            'contact_person_ids': contact_person_lst,
             'funeral_other_cost_ids': other_cost_lst,
         })
 

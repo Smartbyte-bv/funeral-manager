@@ -14,3 +14,4 @@ funeral_manager.access_coffee_table_line,access_coffee_table_line,funeral_manage
 funeral_manager.access_funeral_other_cost,access_funeral_other_cost,funeral_manager.model_funeral_other_cost,base.group_user,1,1,1,1
 funeral_manager.access_other_cost_line,access_other_cost_line,funeral_manager.model_other_cost_line,base.group_user,1,1,1,1
 funeral_manager.access_contact_person,access_contact_person,funeral_manager.model_contact_person,base.group_user,1,1,1,1
+funeral_manager.access_funeral_contact_person,access_funeral_contact_person,funeral_manager.model_funeral_contact_person,base.group_user,1,1,1,1
