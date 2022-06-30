@@ -7,21 +7,6 @@ class FuneralManagement(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
-    # def _default_domain_variant_1_ids(self):
-    #     product_ids = self.env['product.product'].search([])
-    #     filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_1)
-    #     return [('id', 'in', filtered_product_ids.ids)]
-    #
-    # def _default_domain_variant_2_ids(self):
-    #     product_ids = self.env['product.product'].search([])
-    #     filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_2)
-    #     return [('id', 'in', filtered_product_ids.ids)]
-    #
-    # def _default_domain_variant_3_ids(self):
-    #     product_ids = self.env['product.product'].search([])
-    #     filtered_product_ids = product_ids.filtered(lambda r: r.categ_id.variant_3)
-    #     return [('id', 'in', filtered_product_ids.ids)]
-
     name = fields.Char(
         string='Request Number', required=True, copy=False,
         readonly=True, index=True, default=lambda self: _('New'))
@@ -38,11 +23,7 @@ class FuneralManagement(models.Model):
     funeral_transportation_ids = fields.One2many('funeral.transportation', 'funeral_id')
     funeral_coffee_table_ids = fields.One2many('funeral.coffee.table', 'funeral_id')
     funeral_other_cost_ids = fields.One2many('funeral.other.cost', 'funeral_id')
-    contact_person_ids = fields.Many2many('res.partner')
-
-    # supplement_out_of_hours = fields.Selection([('no', 'No'), ('yes', 'Yes')],
-    #                                            string="Supplement Saturday/out of hours", default="no",
-    #                                            related="service_type_id.supplement_out_of_hours", readonly=False)
+    contact_person_ids = fields.One2many('funeral.contact.person', 'funeral_id')
 
     amount_untaxed = fields.Float(store=True, compute="get_total_price")
     amount_tax = fields.Float(store=True, compute="get_total_price")
@@ -67,6 +48,10 @@ class FuneralManagement(models.Model):
     other_cost_amount_untaxed = fields.Float(store=True, compute="other_cost_get_total_price")
     other_cost_amount_tax = fields.Float(store=True, compute="other_cost_get_total_price")
     other_cost_amount_total = fields.Float(store=True, compute="other_cost_get_total_price")
+    company_id = fields.Many2one('res.company', 'Company', required=True, index=True,
+                                 default=lambda self: self.env.company)
+    currency_id = fields.Many2one(related='company_id.currency_id', depends=["company_id"], store=True,
+                                  ondelete="restrict")
 
     @api.model
     def create(self, vals):
@@ -108,9 +93,10 @@ class FuneralManagement(models.Model):
                 (0, 0, {
                     'description': line.description,
                     'qty': line.qty,
-                    'depend_selling_price': line.selling_price,
+                    'price_unit': line.price_unit,
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
+                    'taxes_id': line.taxes_id.ids,
                 })
             )
         aula_lst = []
@@ -119,9 +105,10 @@ class FuneralManagement(models.Model):
                 (0, 0, {
                     'description': line.description,
                     'qty': line.qty,
-                    'depend_selling_price': line.selling_price,
+                    'price_unit': line.price_unit,
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
+                    'taxes_id': line.taxes_id.ids,
                 })
             )
         print_works_lst = []
@@ -130,9 +117,10 @@ class FuneralManagement(models.Model):
                 (0, 0, {
                     'description': line.description,
                     'qty': line.qty,
-                    'depend_selling_price': line.selling_price,
+                    'price_unit': line.price_unit,
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
+                    'taxes_id': line.taxes_id.ids,
                 })
             )
         transportation_lst = []
@@ -141,9 +129,10 @@ class FuneralManagement(models.Model):
                 (0, 0, {
                     'description': line.description,
                     'qty': line.qty,
-                    'depend_selling_price': line.selling_price,
+                    'price_unit': line.price_unit,
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
+                    'taxes_id': line.taxes_id.ids,
                 })
             )
         coffee_table_lst = []
@@ -152,9 +141,10 @@ class FuneralManagement(models.Model):
                 (0, 0, {
                     'description': line.description,
                     'qty': line.qty,
-                    'depend_selling_price': line.selling_price,
+                    'price_unit': line.price_unit,
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
+                    'taxes_id': line.taxes_id.ids,
                 })
             )
         other_cost_lst = []
@@ -163,9 +153,10 @@ class FuneralManagement(models.Model):
                 (0, 0, {
                     'description': line.description,
                     'qty': line.qty,
-                    'depend_selling_price': line.selling_price,
+                    'price_unit': line.price_unit,
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
+                    'taxes_id': line.taxes_id.ids,
                 })
             )
         self.write({
@@ -183,12 +174,14 @@ class FuneralManagement(models.Model):
         for rec in self:
             total = 0.0
             if rec.funeral_service_line_id:
-                line_price = rec.funeral_service_line_id.mapped('price')
+                line_price = rec.funeral_service_line_id.mapped('price_subtotal')
+                line_price_tax = rec.funeral_service_line_id.mapped('price_tax')
+                price_tax = sum(line_price_tax)
                 total = sum(line_price)
                 # if rec.supplement_out_of_hours == "yes":
                 #     total += rec.service_type_id.supplement_out_of_hours_price
                 rec.amount_untaxed = total
-                rec.amount_tax = (total * 6) / 100
+                rec.amount_tax = price_tax
                 rec.amount_total = rec.amount_untaxed + rec.amount_tax
 
     @api.depends('funeral_aula_ids')
@@ -197,10 +190,12 @@ class FuneralManagement(models.Model):
             total = 0.0
             if rec.funeral_aula_ids:
                 line_price = rec.funeral_aula_ids.mapped(
-                    'price')
+                    'price_subtotal')
+                line_price_tax = rec.funeral_aula_ids.mapped('price_tax')
+                price_tax = sum(line_price_tax)
                 total = sum(line_price)
                 rec.aula_amount_untaxed = total
-                rec.aula_amount_tax = (total * 6) / 100
+                rec.aula_amount_tax = price_tax
                 rec.aula_amount_total = rec.aula_amount_untaxed + rec.aula_amount_tax
 
     @api.depends('funeral_print_works_ids')
@@ -209,10 +204,12 @@ class FuneralManagement(models.Model):
             total = 0.0
             if rec.funeral_print_works_ids:
                 line_price = rec.funeral_print_works_ids.mapped(
-                    'price')
+                    'price_subtotal')
+                line_price_tax = rec.funeral_print_works_ids.mapped('price_tax')
+                price_tax = sum(line_price_tax)
                 total = sum(line_price)
                 rec.print_works_amount_untaxed = total
-                rec.print_works_amount_tax = (total * 6) / 100
+                rec.print_works_amount_tax = price_tax
                 rec.print_works_amount_total = rec.print_works_amount_untaxed + rec.print_works_amount_tax
 
     @api.depends('funeral_transportation_ids')
@@ -221,10 +218,12 @@ class FuneralManagement(models.Model):
             total = 0.0
             if rec.funeral_transportation_ids:
                 line_price = rec.funeral_transportation_ids.mapped(
-                    'price')
+                    'price_subtotal')
+                line_price_tax = rec.funeral_transportation_ids.mapped('price_tax')
+                price_tax = sum(line_price_tax)
                 total = sum(line_price)
                 rec.transportation_amount_untaxed = total
-                rec.transportation_amount_tax = (total * 6) / 100
+                rec.transportation_amount_tax = price_tax
                 rec.transportation_amount_total = rec.transportation_amount_untaxed + rec.transportation_amount_tax
 
     @api.depends('funeral_coffee_table_ids')
@@ -233,12 +232,13 @@ class FuneralManagement(models.Model):
             total = 0.0
             if rec.funeral_coffee_table_ids:
                 line_price = rec.funeral_coffee_table_ids.mapped(
-                    'price')
+                    'price_subtotal')
+                line_price_tax = rec.funeral_coffee_table_ids.mapped('price_tax')
+                price_tax = sum(line_price_tax)
                 total = sum(line_price)
                 rec.coffee_table_amount_untaxed = total
-                rec.coffee_table_amount_tax = (total * 6) / 100
+                rec.coffee_table_amount_tax = price_tax
                 rec.coffee_table_amount_total = rec.coffee_table_amount_untaxed + rec.coffee_table_amount_tax
-
 
     @api.depends('funeral_other_cost_ids')
     def other_cost_get_total_price(self):
@@ -246,10 +246,12 @@ class FuneralManagement(models.Model):
             total = 0.0
             if rec.funeral_other_cost_ids:
                 line_price = rec.funeral_other_cost_ids.mapped(
-                    'price')
+                    'price_subtotal')
+                line_price_tax = rec.funeral_other_cost_ids.mapped('price_tax')
+                price_tax = sum(line_price_tax)
                 total = sum(line_price)
                 rec.other_cost_amount_untaxed = total
-                rec.other_cost_amount_tax = (total * 6) / 100
+                rec.other_cost_amount_tax = price_tax
                 rec.other_cost_amount_total = rec.other_cost_amount_untaxed + rec.other_cost_amount_tax
 
 
@@ -266,13 +268,35 @@ class FuneralServiceLine(models.Model):
                                                        related="product_id.attribute_line_ids")
     value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
     variant_id = fields.Many2many('product.attribute.value')
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    price = fields.Float(store=True, compute="_get_selling_price")
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('qty', 'variant_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id', 'variant_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit + sum(line.variant_id.mapped('variant_price'))
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class FuneralAula(models.Model):
@@ -288,13 +312,35 @@ class FuneralAula(models.Model):
                                                        related="product_id.attribute_line_ids")
     value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
     variant_id = fields.Many2many('product.attribute.value')
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    price = fields.Float(store=True, compute="_get_selling_price")
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('qty', 'variant_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id', 'variant_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit + sum(line.variant_id.mapped('variant_price'))
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class FuneralPrintWorks(models.Model):
@@ -310,13 +356,35 @@ class FuneralPrintWorks(models.Model):
                                                        related="product_id.attribute_line_ids")
     value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
     variant_id = fields.Many2many('product.attribute.value')
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    price = fields.Float(store=True, compute="_get_selling_price")
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('qty', 'variant_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id', 'variant_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit + sum(line.variant_id.mapped('variant_price'))
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class FuneralTransportation(models.Model):
@@ -332,13 +400,35 @@ class FuneralTransportation(models.Model):
                                                        related="product_id.attribute_line_ids")
     value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
     variant_id = fields.Many2many('product.attribute.value')
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    price = fields.Float(store=True, compute="_get_selling_price")
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('qty', 'variant_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id', 'variant_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit + sum(line.variant_id.mapped('variant_price'))
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class FuneralCoffeeTable(models.Model):
@@ -354,13 +444,36 @@ class FuneralCoffeeTable(models.Model):
                                                        related="product_id.attribute_line_ids")
     value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
     variant_id = fields.Many2many('product.attribute.value')
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    price = fields.Float(store=True, compute="_get_selling_price")
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('qty', 'variant_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id', 'variant_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit + sum(line.variant_id.mapped('variant_price'))
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
+
 
 class FuneralOtherCost(models.Model):
     _name = 'funeral.other.cost'
@@ -375,10 +488,46 @@ class FuneralOtherCost(models.Model):
                                                        related="product_id.attribute_line_ids")
     value_ids = fields.Many2many('product.attribute.value', related="product_template_attribute_lines.value_ids")
     variant_id = fields.Many2many('product.attribute.value')
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    price = fields.Float(store=True, compute="_get_selling_price")
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('qty', 'variant_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.price = (rec.qty * (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price'))))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id', 'variant_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit + sum(line.variant_id.mapped('variant_price'))
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
+
+
+class FuneralContactPerson(models.Model):
+    _name = 'funeral.contact.person'
+    _description = 'Funeral Contact Person'
+
+    partner_id = fields.Many2one('res.partner')
+    email = fields.Char(related="partner_id.email", readonly=False)
+    phone = fields.Char(related="partner_id.phone", readonly=False)
+    city = fields.Char(related="partner_id.city", readonly=False)
+    country_id = fields.Many2one(related="partner_id.country_id", readonly=False)
+    relationship = fields.Char()
+    signature = fields.Image('Signature', help='Signature', copy=False, attachment=True)
+    funeral_id = fields.Many2one('funeral.management')

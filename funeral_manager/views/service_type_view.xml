@@ -17,6 +17,8 @@
                         <group>
                             <group>
                                 <field name="notes"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="company_id" invisible="1"/>
                             </group>
                         </group>
                         <notebook>
@@ -25,12 +27,17 @@
                                     <field name="line_ids" required="1" nolabel="1">
                                         <tree string="Service Line" editable="bottom">
                                             <field name="product_id" required="1"/>
+                                            <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
-                                            <field name="variant_id" widget="many2many_tags" domain="[('id', 'in', value_ids)]"/>
-                                            <field name="description"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" required="1"/>
-                                            <field name="selling_price" required="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" string="Unit Price" required="1"/>
+                                            <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
+                                            <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>
                                     </field>
                                 </group>
@@ -40,12 +47,17 @@
                                     <field name="aula_line_ids" required="1" nolabel="1">
                                         <tree string="Aula Line" editable="bottom">
                                             <field name="product_id" required="1"/>
+                                            <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
-                                            <field name="variant_id" widget="many2many_tags" domain="[('id', 'in', value_ids)]"/>
-                                            <field name="description"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" required="1"/>
-                                            <field name="selling_price" required="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" string="Unit Price" required="1"/>
+                                            <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
+                                            <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>
                                     </field>
                                 </group>
@@ -55,12 +67,17 @@
                                     <field name="print_works_line_ids" required="1" nolabel="1">
                                         <tree string="Print Works Line" editable="bottom">
                                             <field name="product_id" required="1"/>
+                                            <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
-                                            <field name="variant_id" widget="many2many_tags" domain="[('id', 'in', value_ids)]"/>
-                                            <field name="description"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" required="1"/>
-                                            <field name="selling_price" required="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" string="Unit Price" required="1"/>
+                                            <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
+                                            <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>
                                     </field>
                                 </group>
@@ -70,12 +87,17 @@
                                     <field name="transportation_line_ids" required="1" nolabel="1">
                                         <tree string="Transportation Line" editable="bottom">
                                             <field name="product_id" required="1"/>
+                                            <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
-                                            <field name="variant_id" widget="many2many_tags" domain="[('id', 'in', value_ids)]"/>
-                                            <field name="description"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" required="1"/>
-                                            <field name="selling_price" required="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" string="Unit Price" required="1"/>
+                                            <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
+                                            <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>
                                     </field>
                                 </group>
@@ -85,12 +107,17 @@
                                     <field name="coffee_table_line_ids" required="1" nolabel="1">
                                         <tree string="Coffee Table" editable="bottom">
                                             <field name="product_id" required="1"/>
+                                            <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
-                                            <field name="variant_id" widget="many2many_tags" domain="[('id', 'in', value_ids)]"/>
-                                            <field name="description"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" required="1"/>
-                                            <field name="selling_price" required="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" string="Unit Price" required="1"/>
+                                            <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
+                                            <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>
                                     </field>
                                 </group>
@@ -100,12 +127,17 @@
                                     <field name="other_cost_line_ids" required="1" nolabel="1">
                                         <tree string="Other Cost" editable="bottom">
                                             <field name="product_id" required="1"/>
+                                            <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
-                                            <field name="variant_id" widget="many2many_tags" domain="[('id', 'in', value_ids)]"/>
-                                            <field name="description"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" required="1"/>
-                                            <field name="selling_price" required="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" string="Unit Price" required="1"/>
+                                            <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
+                                            <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>
                                     </field>
                                 </group>
@@ -114,12 +146,31 @@
                                 <group>
                                     <field name="contact_person_ids" required="1" nolabel="1">
                                         <tree string="Contact Person" editable="bottom">
-                                            <field name="name" required="1"/>
+                                            <field name="partner_id" required="1"/>
                                             <field name="email"/>
                                             <field name="phone"/>
                                             <field name="city"/>
                                             <field name="country_id"/>
+                                            <field name="relationship"/>
+                                            <field name="signature" widget="signature" class="oe_avatar"/>
                                         </tree>
+                                        <form>
+                                            <sheet>
+                                                <group>
+                                                    <group>
+                                                        <field name="partner_id" required="1"/>
+                                                        <field name="relationship"/>
+                                                        <field name="signature" widget="signature"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="email"/>
+                                                        <field name="phone"/>
+                                                        <field name="city"/>
+                                                        <field name="country_id"/>
+                                                    </group>
+                                                </group>
+                                            </sheet>
+                                        </form>
                                     </field>
                                 </group>
                             </page>

@@ -19,10 +19,11 @@ class ServiceType(models.Model):
     transportation_line_ids = fields.One2many('transportation.line', 'service_type_id')
     coffee_table_line_ids = fields.One2many('coffee.table.line', 'service_type_id')
     other_cost_line_ids = fields.One2many('other.cost.line', 'service_type_id')
-    contact_person_ids = fields.Many2many('res.partner')
-    # supplement_out_of_hours = fields.Selection([('no', 'No'), ('yes', 'Yes')], default='no',
-    #                                            string="Supplement Saturday/out of hours")
-    # supplement_out_of_hours_price = fields.Float('Supplement Saturday/out of hours(Price)')
+    contact_person_ids = fields.One2many('contact.person', 'service_type_id')
+    company_id = fields.Many2one('res.company', 'Company', required=True, index=True,
+                                 default=lambda self: self.env.company)
+    currency_id = fields.Many2one(related='company_id.currency_id', depends=["company_id"], store=True,
+                                  ondelete="restrict")
 
 
 class ServiceTypeLine(models.Model):
@@ -36,14 +37,36 @@ class ServiceTypeLine(models.Model):
     variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
+    taxes_id = fields.Many2many('account.tax', string="Tax")
 
-    @api.depends('variant_id', 'product_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class AulaLine(models.Model):
@@ -57,14 +80,35 @@ class AulaLine(models.Model):
     variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
+    taxes_id = fields.Many2many('account.tax', string="Tax")
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
 
-    @api.depends('variant_id', 'product_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class PrintWorksLine(models.Model):
@@ -78,14 +122,40 @@ class PrintWorksLine(models.Model):
     variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
+    taxes_id = fields.Many2many('account.tax', string="Tax")
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
 
     @api.depends('variant_id', 'product_id')
-    def _get_selling_price(self):
+    def _get_price_subtotal(self):
         for rec in self:
-            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+            rec.price_subtotal = (rec.price_unit + sum(rec.variant_id.mapped('variant_price')))
+
+    @api.depends('qty', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class TransportationLine(models.Model):
@@ -99,14 +169,35 @@ class TransportationLine(models.Model):
     variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
+    taxes_id = fields.Many2many('account.tax', string="Tax")
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
 
-    @api.depends('variant_id', 'product_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
 class CoffeeTableLine(models.Model):
@@ -120,14 +211,36 @@ class CoffeeTableLine(models.Model):
     variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
+    taxes_id = fields.Many2many('account.tax', string="Tax")
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
 
-    @api.depends('variant_id', 'product_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
+
 
 class OtherCostLine(models.Model):
     _name = 'other.cost.line'
@@ -140,11 +253,46 @@ class OtherCostLine(models.Model):
     variant_id = fields.Many2many('product.attribute.value')
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
-    depend_selling_price = fields.Float(related="product_id.list_price")
-    selling_price = fields.Float(compute="_get_selling_price", store=True, readonly=False)
     service_type_id = fields.Many2one('service.type')
+    taxes_id = fields.Many2many('account.tax', string="Tax")
+    currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
+                                  store=True,
+                                  string='Currency')
+    price_unit = fields.Float()
+    price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
+    price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
+    price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
 
-    @api.depends('variant_id', 'product_id')
-    def _get_selling_price(self):
-        for rec in self:
-            rec.selling_price = (rec.depend_selling_price + sum(rec.variant_id.mapped('variant_price')))
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.taxes_id = self.product_id.taxes_id.ids
+        self.price_unit = self.product_id.list_price
+
+    @api.depends('qty', 'price_unit', 'taxes_id')
+    def _compute_amount(self):
+        """
+        Compute the amounts of the SO line.
+        """
+        for line in self:
+            price = line.price_unit
+            taxes = line.taxes_id.compute_all(price, line.service_type_id.currency_id, line.qty,
+                                              product=line.product_id, partner=False)
+            line.update({
+                'price_tax': taxes['total_included'] - taxes['total_excluded'],
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
+
+
+class ContactPerson(models.Model):
+    _name = 'contact.person'
+    _description = 'Contact Person'
+
+    partner_id = fields.Many2one('res.partner')
+    email = fields.Char(related="partner_id.email", readonly=False)
+    phone = fields.Char(related="partner_id.phone", readonly=False)
+    city = fields.Char(related="partner_id.city", readonly=False)
+    country_id = fields.Many2one(related="partner_id.country_id", readonly=False)
+    relationship = fields.Char()
+    signature = fields.Image('Signature', help='Signature', copy=False, attachment=True)
+    service_type_id = fields.Many2one('service.type')

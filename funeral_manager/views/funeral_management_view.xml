@@ -41,8 +41,9 @@
                                             <field name="variant_id" widget="many2many_tags"
                                                    domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="price" force_save="1" string="Price"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -67,14 +68,14 @@
                                         <tree string="Aula Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
                                             <field name="variant_id" widget="many2many_tags"
                                                    domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="price" force_save="1" string="Price"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -91,14 +92,14 @@
                                         <tree string="Print Works Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
                                             <field name="variant_id" widget="many2many_tags"
                                                    domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="price" force_save="1" string="Price"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -115,14 +116,14 @@
                                         <tree string="Transportation Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
                                             <field name="variant_id" widget="many2many_tags"
                                                    domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="price" force_save="1" string="Price"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -139,14 +140,14 @@
                                         <tree string="Coffee Table Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
                                             <field name="variant_id" widget="many2many_tags"
                                                    domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="price" force_save="1" string="Price"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -163,14 +164,14 @@
                                         <tree string="Other Cost Line" editable="bottom">
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
-
                                             <field name="product_template_attribute_lines" invisible="1"/>
                                             <field name="value_ids" invisible="1"/>
                                             <field name="variant_id" widget="many2many_tags"
                                                    domain="[('id', 'in', value_ids)]"/>
                                             <field name="qty" force_save="1"/>
-                                            <field name="depend_selling_price" force_save="1" invisible="1"/>
-                                            <field name="price" force_save="1" string="Price"/>
+                                            <field name="taxes_id" widget="many2many_tags"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -185,12 +186,31 @@
                                 <group>
                                     <field name="contact_person_ids" required="1" nolabel="1">
                                         <tree string="Contact Person" editable="bottom">
-                                            <field name="name" required="1"/>
+                                            <field name="partner_id" required="1"/>
                                             <field name="email"/>
                                             <field name="phone"/>
                                             <field name="city"/>
                                             <field name="country_id"/>
+                                            <field name="relationship"/>
+                                            <field name="signature" widget="signature" class="oe_avatar"/>
                                         </tree>
+                                        <form>
+                                            <sheet>
+                                                <group>
+                                                    <group>
+                                                        <field name="partner_id" required="1"/>
+                                                        <field name="relationship"/>
+                                                        <field name="signature" widget="signature"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="email"/>
+                                                        <field name="phone"/>
+                                                        <field name="city"/>
+                                                        <field name="country_id"/>
+                                                    </group>
+                                                </group>
+                                            </sheet>
+                                        </form>
                                     </field>
                                 </group>
                             </page>
