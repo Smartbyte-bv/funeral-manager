@@ -272,127 +272,133 @@ class FuneralManagement(models.Model):
     def create_sale_order(self):
         sale_order_obj = self.env['sale.order']
         lst = []
-        if self.funeral_service_line_id:
-            service_line_tax_wish = self.funeral_service_line_id.read_group([],
-                                                                            fields=['taxes_id', 'price_subtotal'],
-                                                                            groupby=['taxes_id'])
-            for tax in service_line_tax_wish:
-                product_id = self.env['product.template'].search([('name', '=', 'Service')])
-                if not product_id:
-                    product_id = self.env['product.template'].create({
-                        'name': 'Service',
-                    })
-                lst.append(
-                    (0, 0, {
-                        'product_id': product_id.product_variant_id.id,
-                        'price_unit': tax.get('price_subtotal'),
-                        'product_uom_qty': 1,
-                        'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
-                    }))
+        try:
+            if self.funeral_service_line_id:
+                service_line_tax_wish = self.funeral_service_line_id.read_group([('funeral_id', '=', self.id)],
+                                                                                fields=['taxes_id', 'price_subtotal'],
+                                                                                groupby=['taxes_id'])
+                print(">>>>service_line_tax_wish", self.funeral_service_line_id)
+                print(">>>>service_line_tax_wish", service_line_tax_wish)
+                for tax in service_line_tax_wish:
+                    product_id = self.env['product.template'].search([('name', '=', 'Service')])
+                    if not product_id:
+                        product_id = self.env['product.template'].create({
+                            'name': 'Service',
+                        })
+                    lst.append(
+                        (0, 0, {
+                            'product_id': product_id.product_variant_id.id,
+                            'price_unit': tax.get('price_subtotal'),
+                            'product_uom_qty': 1,
+                            'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
+                        }))
 
-        if self.funeral_aula_ids:
-            aula_tax_wish = self.funeral_aula_ids.read_group([],
-                                                             fields=['taxes_id', 'price_subtotal'],
-                                                             groupby=['taxes_id'])
-            for tax in aula_tax_wish:
-                product_id = self.env['product.template'].search([('name', '=', 'Aula')])
-                if not product_id:
-                    product_id = self.env['product.template'].create({
-                        'name': 'Aula',
-                    })
-                lst.append(
-                    (0, 0, {
-                        'product_id': product_id.product_variant_id.id,
-                        'price_unit': tax.get('price_subtotal'),
-                        'product_uom_qty': 1,
-                        'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
-                    }))
+            if self.funeral_aula_ids:
+                aula_tax_wish = self.funeral_aula_ids.read_group([('funeral_id', '=', self.id)],
+                                                                 fields=['taxes_id', 'price_subtotal'],
+                                                                 groupby=['taxes_id'])
+                for tax in aula_tax_wish:
+                    product_id = self.env['product.template'].search([('name', '=', 'Aula')])
+                    if not product_id:
+                        product_id = self.env['product.template'].create({
+                            'name': 'Aula',
+                        })
+                    lst.append(
+                        (0, 0, {
+                            'product_id': product_id.product_variant_id.id,
+                            'price_unit': tax.get('price_subtotal'),
+                            'product_uom_qty': 1,
+                            'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
+                        }))
 
-        if self.funeral_print_works_ids:
-            funeral_print_works_ids = self.funeral_print_works_ids.read_group([],
-                                                                              fields=['taxes_id', 'price_subtotal'],
-                                                                              groupby=['taxes_id'])
-            for tax in funeral_print_works_ids:
-                product_id = self.env['product.template'].search([('name', '=', 'Print Works')])
-                if not product_id:
-                    product_id = self.env['product.template'].create({
-                        'name': 'Print Works',
-                    })
-                lst.append(
-                    (0, 0, {
-                        'product_id': product_id.product_variant_id.id,
-                        'price_unit': tax.get('price_subtotal'),
-                        'product_uom_qty': 1,
-                        'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
-                    }))
+            if self.funeral_print_works_ids:
+                funeral_print_works_ids = self.funeral_print_works_ids.read_group([('funeral_id', '=', self.id)],
+                                                                                  fields=['taxes_id', 'price_subtotal'],
+                                                                                  groupby=['taxes_id'])
+                for tax in funeral_print_works_ids:
+                    product_id = self.env['product.template'].search([('name', '=', 'Print Works')])
+                    if not product_id:
+                        product_id = self.env['product.template'].create({
+                            'name': 'Print Works',
+                        })
+                    lst.append(
+                        (0, 0, {
+                            'product_id': product_id.product_variant_id.id,
+                            'price_unit': tax.get('price_subtotal'),
+                            'product_uom_qty': 1,
+                            'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
+                        }))
 
-        if self.funeral_transportation_ids:
-            funeral_transportation_ids = self.funeral_transportation_ids.read_group([],
+                if self.funeral_transportation_ids:
+                    funeral_transportation_ids = self.funeral_transportation_ids.read_group([('funeral_id', '=', self.id)],
+                                                                                            fields=['taxes_id',
+                                                                                                    'price_subtotal'],
+                                                                                            groupby=['taxes_id'])
+                    for tax in funeral_transportation_ids:
+                        product_id = self.env['product.template'].search([('name', '=', 'Transportation')])
+                        if not product_id:
+                            product_id = self.env['product.template'].create({
+                                'name': 'Transportation',
+                            })
+                        lst.append(
+                            (0, 0, {
+                                'product_id': product_id.product_variant_id.id,
+                                'price_unit': tax.get('price_subtotal'),
+                                'product_uom_qty': 1,
+                                'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
+                            }))
+
+                if self.funeral_coffee_table_ids:
+                    funeral_coffee_table_ids = self.funeral_coffee_table_ids.read_group([('funeral_id', '=', self.id)],
+                                                                                        fields=['taxes_id',
+                                                                                                'price_subtotal'],
+                                                                                        groupby=['taxes_id'])
+                    for tax in funeral_coffee_table_ids:
+                        product_id = self.env['product.template'].search([('name', '=', 'Coffee Table')])
+                        if not product_id:
+                            product_id = self.env['product.template'].create({
+                                'name': 'Coffee Table',
+                            })
+                        lst.append(
+                            (0, 0, {
+                                'product_id': product_id.product_variant_id.id,
+                                'price_unit': tax.get('price_subtotal'),
+                                'product_uom_qty': 1,
+                                'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
+                            }))
+
+                if self.funeral_other_cost_ids:
+                    funeral_other_cost_ids = self.funeral_other_cost_ids.read_group([('funeral_id', '=', self.id)],
                                                                                     fields=['taxes_id',
                                                                                             'price_subtotal'],
                                                                                     groupby=['taxes_id'])
-            for tax in funeral_transportation_ids:
-                product_id = self.env['product.template'].search([('name', '=', 'Transportation')])
-                if not product_id:
-                    product_id = self.env['product.template'].create({
-                        'name': 'Transportation',
-                    })
-                lst.append(
-                    (0, 0, {
-                        'product_id': product_id.product_variant_id.id,
-                        'price_unit': tax.get('price_subtotal'),
-                        'product_uom_qty': 1,
-                        'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
-                    }))
-
-        if self.funeral_coffee_table_ids:
-            funeral_coffee_table_ids = self.funeral_coffee_table_ids.read_group([],
-                                                                                fields=['taxes_id', 'price_subtotal'],
-                                                                                groupby=['taxes_id'])
-            for tax in funeral_coffee_table_ids:
-                product_id = self.env['product.template'].search([('name', '=', 'Coffee Table')])
-                if not product_id:
-                    product_id = self.env['product.template'].create({
-                        'name': 'Coffee Table',
-                    })
-                lst.append(
-                    (0, 0, {
-                        'product_id': product_id.product_variant_id.id,
-                        'price_unit': tax.get('price_subtotal'),
-                        'product_uom_qty': 1,
-                        'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
-                    }))
-
-        if self.funeral_other_cost_ids:
-            funeral_other_cost_ids = self.funeral_other_cost_ids.read_group([],
-                                                                            fields=['taxes_id', 'price_subtotal'],
-                                                                            groupby=['taxes_id'])
-            for tax in funeral_other_cost_ids:
-                product_id = self.env['product.template'].search([('name', '=', 'Other Cost')])
-                if not product_id:
-                    product_id = self.env['product.template'].create({
-                        'name': 'Other Cost',
-                    })
-                lst.append(
-                    (0, 0, {
-                        'product_id': product_id.product_variant_id.id,
-                        'price_unit': tax.get('price_subtotal'),
-                        'product_uom_qty': 1,
-                        'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
-                    }))
-
-            new_order_vals = {
-                'partner_id': self.partner_id.id,
-                'funeral_id': self.id,
-                'order_line': lst,
-            }
-            order = sale_order_obj.create(new_order_vals)
-            return {
-                "type": "ir.actions.act_window",
-                "res_model": "sale.order",
-                "views": [[False, "form"]],
-                "res_id": order.id,
-            }
+                    for tax in funeral_other_cost_ids:
+                        product_id = self.env['product.template'].search([('name', '=', 'Other Cost')])
+                        if not product_id:
+                            product_id = self.env['product.template'].create({
+                                'name': 'Other Cost',
+                            })
+                        lst.append(
+                            (0, 0, {
+                                'product_id': product_id.product_variant_id.id,
+                                'price_unit': tax.get('price_subtotal'),
+                                'product_uom_qty': 1,
+                                'tax_id': tax.get('taxes_id') and [(6, 0, [tax.get('taxes_id')[0]])] or False,
+                            }))
+        except:
+            pass
+        new_order_vals = {
+            'partner_id': self.partner_id.id,
+            'funeral_id': self.id,
+            'order_line': lst,
+        }
+        order = sale_order_obj.create(new_order_vals)
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "sale.order",
+            "views": [[False, "form"]],
+            "res_id": order.id,
+        }
 
     def action_sale_orders(self):
         action = self.env.ref('sale.action_orders').read()[0]
