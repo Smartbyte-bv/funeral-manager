@@ -212,6 +212,34 @@
                                            class="oe_subtotal_footer_separator"/>
                                 </group>
                             </page>
+                            <page string="Flowers">
+                                <group>
+                                    <field name="funeral_flowers_ids" nolabel="1">
+                                        <tree string="Flowers" editable="bottom">
+                                            <field name="is_invoice" force_save="1"/>
+                                            <field name="product_id" force_save="1"/>
+                                            <field name="description" force_save="1"/>
+                                            <field name="product_template_attribute_lines" invisible="1"/>
+                                            <field name="value_ids" invisible="1"/>
+                                            <field name="price_tax" invisible="1" force_save="1"/>
+                                            <field name="variant_id" widget="many2many_tags"
+                                                   domain="[('id', 'in', value_ids)]"/>
+                                            <field name="qty" force_save="1"/>
+                                            <field name="taxes_id" widget="many2many_tags"
+                                                   domain="[('type_tax_use','=','sale')]"/>
+                                            <field name="price_unit" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
+                                            <field name="price_subtotal" force_save="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="flower_amount_untaxed" sum="Untaxed amount"/>
+                                    <field name="flower_amount_tax"/>
+                                    <field name="flower_amount_total" sum="Total amount"
+                                           class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </page>
                             <page string="Contact Person" name="contact_person">
                                 <group>
                                     <field name="contact_person_ids" required="1" nolabel="1">

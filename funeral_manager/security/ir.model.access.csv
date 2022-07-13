@@ -15,3 +15,5 @@ funeral_manager.access_funeral_other_cost,access_funeral_other_cost,funeral_mana
 funeral_manager.access_other_cost_line,access_other_cost_line,funeral_manager.model_other_cost_line,base.group_user,1,1,1,1
 funeral_manager.access_contact_person,access_contact_person,funeral_manager.model_contact_person,base.group_user,1,1,1,1
 funeral_manager.access_funeral_contact_person,access_funeral_contact_person,funeral_manager.model_funeral_contact_person,base.group_user,1,1,1,1
+funeral_manager.access_flowers_line,access_flowers_line,funeral_manager.model_flowers_line,base.group_user,1,1,1,1
+funeral_manager.access_funeral_flowers,access_funeral_flowers,funeral_manager.model_funeral_flowers,base.group_user,1,1,1,1
