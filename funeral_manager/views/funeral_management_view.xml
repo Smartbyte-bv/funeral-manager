@@ -231,7 +231,7 @@
                                             <field name="price_subtotal" force_save="1"/>
                                             <!--                                            <field name="price_subtotal" force_save="1"/>-->
                                             <field name="part_of_service" force_save="1"/>
-                                            <field name="invoice_to" force_save="1"/>
+                                            <field name="invoice_to" force_save="1"  attrs="{'invisible': [('part_of_service', '=', 'yes')]}"/>
                                             <button name="create_invoice_flower" attrs="{'invisible': [('part_of_service', '=', 'yes')]}"
                                                     type="object" string="Create Invoice" class="oe_highlight">
 
