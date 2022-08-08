@@ -815,7 +815,7 @@ class FuneralFlowers(models.Model):
                     'product_id': self.product_id.product_variant_id.id,
                     'price_unit': self.price_unit,
                     'product_uom_qty': self.qty,
-                    'tax_id': self.taxes_id and [(6, 0, [self.taxes_id.ids])] or False,
+                    'tax_id': self.taxes_id and [(6, 0, self.taxes_id.ids)] or False,
                 })],
         }
         print(">>>>>>>lst",new_order_vals)
