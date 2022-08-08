@@ -311,7 +311,7 @@ class FlowersLine(models.Model):
     description = fields.Char(related="product_id.display_name", readonly=False)
     qty = fields.Float(default=1)
     service_type_id = fields.Many2one('service.type')
-    is_invoice = fields.Boolean('Is Invoiced ?')
+    # is_invoice = fields.Boolean('Is Invoiced ?')
     taxes_id = fields.Many2many('account.tax', string="Tax")
     currency_id = fields.Many2one(related='service_type_id.currency_id', depends=['service_type_id.currency_id'],
                                   store=True,
@@ -320,6 +320,8 @@ class FlowersLine(models.Model):
     price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
     price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
     price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+    part_of_service = fields.Selection([('yes', 'Yes'), ('no', 'No')])
+    invoice_to = fields.Many2one('res.partner')
 
     @api.onchange('product_id')
     def _onchange_product_id(self):

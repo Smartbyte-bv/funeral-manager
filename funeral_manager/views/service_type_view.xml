@@ -184,7 +184,7 @@
                                 <group>
                                     <field name="flowers_ids" required="1" nolabel="1">
                                         <tree string="Flowers" editable="bottom">
-                                            <field name="is_invoice"/>
+<!--                                            <field name="is_invoice"/>-->
                                             <field name="product_id" required="1"/>
                                             <field name="description"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
@@ -196,6 +196,9 @@
                                                    domain="[('type_tax_use','=','sale')]"/>
                                             <field name="price_unit" string="Unit Price" required="1"/>
                                             <field name="price_subtotal" required="1" string="Subtotal"/>
+                                            <field name="part_of_service"/>
+                                            <field name="invoice_to"/>
+
                                             <!--                                            <field name="price_tax" required="1" string="Subtotal"/>-->
                                             <!--                                            <field name="price_total" required="1" string="Subtotal"/>-->
                                         </tree>

@@ -176,7 +176,8 @@ class FuneralManagement(models.Model):
                     'variant_id': line.variant_id.ids,
                     'product_id': line.product_id.id,
                     'taxes_id': line.taxes_id.ids,
-                    'is_invoice': line.is_invoice,
+                    'part_of_service': line.part_of_service,
+                    'invoice_to': line.invoice_to.id,
                 })
             )
         contact_person_lst = []
@@ -289,17 +290,18 @@ class FuneralManagement(models.Model):
 
     @api.depends('funeral_flowers_ids')
     def flower_get_total_price(self):
-        for rec in self:
+        line_price =0.0
+        line_price_tax =0.0
+        for rec in self.funeral_flowers_ids:
             total = 0.0
-            if rec.funeral_flowers_ids.filtered(lambda p: p.is_invoice):
-                line_price = rec.funeral_flowers_ids.mapped(
-                    'price_subtotal')
-                line_price_tax = rec.funeral_flowers_ids.mapped('price_tax')
-                price_tax = sum(line_price_tax)
-                total = sum(line_price)
-                rec.flower_amount_untaxed = total
-                rec.flower_amount_tax = price_tax
-                rec.flower_amount_total = rec.flower_amount_untaxed + rec.flower_amount_tax
+            if rec.part_of_service == 'no':
+                line_price += rec.price_subtotal
+                line_price_tax += rec.price_tax
+                # price_tax = sum(line_price_tax)
+                # total = sum(line_price)
+                self.flower_amount_untaxed = line_price
+                self.flower_amount_tax = line_price_tax
+                self.flower_amount_total = self.flower_amount_untaxed + self.flower_amount_tax
 
     def create_sale_order(self):
         sale_order_obj = self.env['sale.order']
@@ -751,7 +753,7 @@ class FuneralFlowers(models.Model):
     _name = 'funeral.flowers'
     _description = 'Flowers'
 
-    is_invoice = fields.Boolean('Is Invoiced ?')
+    # is_invoice = fields.Boolean('Is Invoiced ?')
     funeral_id = fields.Many2one('funeral.management')
     service_type_id = fields.Many2one('service.type', related="funeral_id.service_type_id")
     description = fields.Char(related="product_id.display_name", readonly=False)
@@ -770,6 +772,8 @@ class FuneralFlowers(models.Model):
     price_subtotal = fields.Float(compute="_compute_amount", store=True, readonly=False)
     price_tax = fields.Float(compute='_compute_amount', string='Total Tax', store=True)
     price_total = fields.Monetary(compute='_compute_amount', string='Total', store=True)
+    part_of_service = fields.Selection([('yes', 'Yes'), ('no', 'No')])
+    invoice_to = fields.Many2one('res.partner')
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
@@ -790,3 +794,35 @@ class FuneralFlowers(models.Model):
                 'price_total': taxes['total_included'],
                 'price_subtotal': taxes['total_excluded'],
             })
+
+    def create_invoice_flower(self):
+        sale_order_obj = self.env['sale.order']
+        # lst = []
+        # try:
+        #     lst.append(
+        #         (0, 0, {
+        #             'product_id': self.product_id.product_variant_id.id,
+        #             'price_unit': self.price_unit,
+        #             'product_uom_qty': self.qty,
+        #             'tax_id': [(6, 0, [self.taxes_id.ids])],
+        #         }))
+        # except:
+        #     pass
+        new_order_vals = {
+            'partner_id': self.invoice_to.id,
+            'funeral_id': self.funeral_id.id,
+            'order_line': [(0, 0, {
+                    'product_id': self.product_id.product_variant_id.id,
+                    'price_unit': self.price_unit,
+                    'product_uom_qty': self.qty,
+                    'tax_id': self.taxes_id and [(6, 0, [self.taxes_id.ids])] or False,
+                })],
+        }
+        print(">>>>>>>lst",new_order_vals)
+        order = sale_order_obj.create(new_order_vals)
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "sale.order",
+            "views": [[False, "form"]],
+            "res_id": order.id,
+        }

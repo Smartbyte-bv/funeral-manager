@@ -16,13 +16,13 @@
                                     type="object"
                                     class="oe_stat_button"
                                     icon="fa-list">
-                               Sale Orders
+                                Sale Orders
                             </button>
                             <button name="action_invoice"
                                     type="object"
                                     class="oe_stat_button"
                                     icon="fa-list">
-                               Invoice
+                                Invoice
                             </button>
                         </div>
                         <div class="oe_title">
@@ -216,7 +216,7 @@
                                 <group>
                                     <field name="funeral_flowers_ids" nolabel="1">
                                         <tree string="Flowers" editable="bottom">
-                                            <field name="is_invoice" force_save="1"/>
+                                            <!--                                            <field name="is_invoice" force_save="1"/>-->
                                             <field name="product_id" force_save="1"/>
                                             <field name="description" force_save="1"/>
                                             <field name="product_template_attribute_lines" invisible="1"/>
@@ -229,7 +229,13 @@
                                                    domain="[('type_tax_use','=','sale')]"/>
                                             <field name="price_unit" force_save="1"/>
                                             <field name="price_subtotal" force_save="1"/>
-                                            <field name="price_subtotal" force_save="1"/>
+                                            <!--                                            <field name="price_subtotal" force_save="1"/>-->
+                                            <field name="part_of_service" force_save="1"/>
+                                            <field name="invoice_to" force_save="1"/>
+                                            <button name="create_invoice_flower" attrs="{'invisible': [('part_of_service', '=', 'yes')]}"
+                                                    type="object" string="Create Invoice" class="oe_highlight">
+
+                                            </button>
                                         </tree>
                                     </field>
                                 </group>
