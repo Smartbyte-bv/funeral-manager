@@ -420,7 +420,7 @@ class FuneralManagement(models.Model):
                         }))
             if self.funeral_flowers_ids:
                 print(">>>>self.funeral_flowers_ids",self.funeral_flowers_ids)
-                funeral_flowers_ids = self.funeral_flowers_ids.read_group([('funeral_id', '=', self.id), ('part_of_service', '=', 'yes')],
+                funeral_flowers_ids = self.funeral_flowers_ids.read_group([('funeral_id', '=', self.id), ('part_of_service', '=', 'no')],
                                                                                 fields=['taxes_id',
                                                                                         'price_subtotal'],
                                                                                 groupby=['taxes_id'])
