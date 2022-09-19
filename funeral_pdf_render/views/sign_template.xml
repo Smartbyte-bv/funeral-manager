@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="generate_pdf_sign_Template_inherit_view_form" model="ir.ui.view">
+            <field name="name">generate_pdf_sign_Template_inherit_view_form</field>
+            <field name="model">sign.template</field>
+            <field name="inherit_id" ref="sign.sign_template_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='go_to_custom_template']" position="after">
+                    <button name="generate_file" icon="fa-wrench" class="oe_stat_button" type="object" string="generate file"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
