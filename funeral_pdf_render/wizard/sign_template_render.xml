@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sign_template_render_view_form" model="ir.ui.view">
+            <field name="name">sign_template_render_view_form</field>
+            <field name="model">sign.template.render</field>
+            <field name="arch" type="xml">
+                <form string="sign_template_render_form">
+                    <sheet>
+                        <group>
+                            <field name="template_id"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Generate" type="object" name="action_generate_template_file" class="btn btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
