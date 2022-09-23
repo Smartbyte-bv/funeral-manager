@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="sign_item_service_type" model="sign.item.type">
+            <field name="name">Service Type</field>
+            <field name="auto_field">service_type_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Service Type</field>
+        </record>
+
+        <record id="sign_item_responsible_service" model="sign.item.type">
+            <field name="name">Responsible Service</field>
+            <field name="auto_field">responsible_service.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Responsible Service</field>
+        </record>
+
+        <record id="sign_item_dob" model="sign.item.type">
+            <field name="name">Date of Birth</field>
+            <field name="auto_field">dob</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Date of Birth</field>
+        </record>
+
+        <record id="sign_item_dod" model="sign.item.type">
+            <field name="name">Date of Death</field>
+            <field name="auto_field">dod</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Date of Death</field>
+        </record>
+
+        <record id="sign_item_rk_number" model="sign.item.type">
+            <field name="name">RK Number</field>
+            <field name="auto_field">rk_number</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">RK Number</field>
+        </record>
+
+        <record id="sign_item_place_of_birth" model="sign.item.type">
+            <field name="name">Place of Birth</field>
+            <field name="auto_field">place_of_birth</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Place of Birth</field>
+        </record>
+
+        <record id="sign_item_place_of_death" model="sign.item.type">
+            <field name="name">Place of Death</field>
+            <field name="auto_field">place_of_death</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Place of Death</field>
+        </record>
+
+        <record id="sign_item_last_address" model="sign.item.type">
+            <field name="name">Last Address</field>
+            <field name="auto_field">last_address</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Last Address</field>
+        </record>
+
+        <record id="sign_item_doctor_id" model="sign.item.type">
+            <field name="name">Doctor</field>
+            <field name="auto_field">doctor_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Doctor</field>
+        </record>
+
+        <record id="sign_item_law_doctor_id" model="sign.item.type">
+            <field name="name">Law Doctor</field>
+            <field name="auto_field">law_doctor_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Law Doctor</field>
+        </record>
+
+        <record id="sign_item_transferred_on" model="sign.item.type">
+            <field name="name">Transferred On</field>
+            <field name="auto_field">transferred_on</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Transferred On</field>
+        </record>
+
+        <record id="sign_item_picked_up" model="sign.item.type">
+            <field name="name">Picked Up</field>
+            <field name="auto_field">picked_up</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Picked Up</field>
+        </record>
+
+        <record id="sign_item_is_dress" model="sign.item.type">
+            <field name="name">Dress</field>
+            <field name="auto_field">is_dress</field>
+            <field name="item_type">checkbox</field>
+            <field name="placeholder">Dress</field>
+        </record>
+
+        <record id="sign_item_is_statement" model="sign.item.type">
+            <field name="name">Statement</field>
+            <field name="auto_field">is_statement</field>
+            <field name="item_type">checkbox</field>
+            <field name="placeholder">Statement</field>
+        </record>
+
+        <record id="sign_item_spouse_id" model="sign.item.type">
+            <field name="name">Spouse</field>
+            <field name="auto_field">spouse_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Spouse</field>
+        </record>
+
+        <record id="sign_item_widow_id" model="sign.item.type">
+            <field name="name">Widow</field>
+            <field name="auto_field">widow_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Widow</field>
+        </record>
+
+        <record id="sign_item_father_id" model="sign.item.type">
+            <field name="name">Father</field>
+            <field name="auto_field">father_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Father</field>
+        </record>
+
+        <record id="sign_item_mother_id" model="sign.item.type">
+            <field name="name">Mother</field>
+            <field name="auto_field">mother_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Mother</field>
+        </record>
+
+        <record id="sign_item_partner_id" model="sign.item.type">
+            <field name="name">Partner</field>
+            <field name="auto_field">partner_id.name</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Partner</field>
+        </record>
+
+        <record id="sign_item_minor" model="sign.item.type">
+            <field name="name">Minor</field>
+            <field name="auto_field">minor</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Minor</field>
+        </record>
+
+        <record id="sign_item_of_age" model="sign.item.type">
+            <field name="name">of Age</field>
+            <field name="auto_field">of_age</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">of Age</field>
+        </record>
+
+        <record id="sign_item_father_deceased" model="sign.item.type">
+            <field name="name">Father Deceased</field>
+            <field name="auto_field">father_deceased</field>
+            <field name="item_type">checkbox</field>
+            <field name="placeholder">Father Deceased</field>
+        </record>
+
+        <record id="sign_item_mother_deceased" model="sign.item.type">
+            <field name="name">Mother Deceased</field>
+            <field name="auto_field">mother_deceased</field>
+            <field name="item_type">checkbox</field>
+            <field name="placeholder">Mother Deceased</field>
+        </record>
+
+    </data>
+</odoo>

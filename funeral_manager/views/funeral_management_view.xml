@@ -30,7 +30,7 @@
                             <field name="service_type_id" required="1"/>
                         </group>
                         <notebook>
-                            <page string="Services">
+                            <page string="Services" name="services">
                                 <group>
                                     <field name="funeral_service_line_id" nolabel="1">
                                         <tree string="Service Line" editable="bottom">
@@ -85,7 +85,7 @@
                                            class="oe_subtotal_footer_separator"/>
                                 </group>
                             </page>
-                            <page string="Print Works">
+                            <page string="Print Works" name="print_works">
                                 <group>
                                     <field name="funeral_print_works_ids" nolabel="1">
                                         <tree string="Print Works Line" editable="bottom">
