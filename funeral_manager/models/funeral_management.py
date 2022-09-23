@@ -23,7 +23,7 @@ class FuneralManagement(models.Model):
     #     return [('id', 'in', filtered_product_ids.ids)]
 
     name = fields.Char(
-        string='Request Number', required=True, copy=False,
+        string='Case Number', required=True, copy=False,
         readonly=True, index=True, default=lambda self: _('New'))
     partner_id = fields.Many2one('res.partner')
     phone = fields.Char(related="partner_id.phone", readonly=0)

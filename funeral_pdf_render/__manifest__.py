@@ -11,9 +11,11 @@
         'security/funeral_security.xml',
         'security/ir.model.access.csv',
 
-        'views/sign_template.xml',
         'views/res_partner.xml',
+        'views/service_type.xml',
         'views/funeral_management.xml',
+        'views/res_partner_type.xml',
+
         'wizard/sign_template_render.xml',
     ],
     'demo': [
