@@ -12,9 +12,18 @@ import os
 import fitz
 
 FORMAT_DATETIME = '%d-%m-%Y %H:%M:%S'
+FORMAT_DATE = '%d-%m-%Y'
+
 
 class SignTemplate(models.Model):
     _inherit = 'sign.template'
+
+    available_fonts = fields.Text(
+        default="cascadia, cascadiai, cascadiab, cascadiabi, figbo, figo, "
+                "figbi, figit, fimbo, fimo, spacembo, spacembi, spacemit, "
+                "spacemo, math, music, symbol1, symbol2, notosbo, notosbi, "
+                "notosit, notos, ubuntu, ubuntubo, ubuntubi, ubuntuit, "
+                "ubuntm, ubuntmbo, ubuntmbi, ubuntmit")
 
     def get_field_list_in_template(self):
         res = []
@@ -28,7 +37,9 @@ class SignTemplate(models.Model):
                 'posY': item.posY,
                 'width': item.width,
                 'height': item.height,
-                'align': item.alignment
+                'align': item.alignment,
+                'font_size': item.font_size,
+                'font_name': item.font_name
             }
             res.append(data)
 
@@ -52,19 +63,19 @@ class SignTemplate(models.Model):
             'datas': data,
             'store_fname': file_name,
             'res_model': model,
+            'template_id': self.id,
             'res_id': res_id
         }
 
     def create_attachment_file(self, file_name, data, res_id, model):
         vals = self.prepare_vals_to_create_attachment(file_name, data, res_id, model)
-        self.env['ir.attachment'].create(vals)
-        return True
+        attachment_id = self.env['ir.attachment'].create(vals)
+        return attachment_id.id
 
-    def generate_file(self, partner, res_id, model):
+    def generate_file(self, case_id, model):
         """
 
-        @param partner:
-        @param res_id:
+        @param case_id:
         @param model:
         @return:
         """
@@ -95,12 +106,18 @@ class SignTemplate(models.Model):
             rect = (rect_x1, rect_y1, rect_x2, rect_y2)
             text = item['field']
 
-            font_size = 10
-            font_name = "helv"
-            generate_text = eval('partner.{}'.format(text)) if text else ''
+            font_size = item['font_size']
+            font_name = item['font_name']
+            generate_text = eval('case_id.{}'.format(text)) if text else ''
 
             if isinstance(generate_text, datetime.datetime):
                 generate_text = generate_text.strftime(FORMAT_DATETIME)
+            if isinstance(generate_text, datetime.date):
+                generate_text = generate_text.strftime(FORMAT_DATE)
+            if isinstance(generate_text, bool):
+                generate_text = 'v' if generate_text else ''
+            if isinstance(generate_text, int):
+                generate_text = str(generate_text)
 
             page.insert_textbox(rect, generate_text, fontname=font_name, fontsize=font_size, align=item['align'])
 
@@ -108,11 +125,12 @@ class SignTemplate(models.Model):
         if not os.path.exists(path):
             os.mkdir(path, 0o777)
 
-        file_name = "{} {}".format(partner.name, self.name)
+        file_name = "{} {}".format(case_id.partner_id.name, self.name)
         new_doc_path = "{}/{}".format(path, file_name)
         doc.save(new_doc_path)
 
         with open(new_doc_path, "rb") as f:
             data = base64.b64encode(f.read())
 
-        self.create_attachment_file(file_name, data, res_id, model)
+        attachment_id = self.create_attachment_file(file_name, data, case_id.partner_id.id, model)
+        return attachment_id
