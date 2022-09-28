@@ -11,6 +11,7 @@
         'security/funeral_security.xml',
         'security/ir.model.access.csv',
         'data/sign_item_type_data.xml',
+        'data/mail_template_data.xml',
 
         'views/res_partner.xml',
         'views/service_type.xml',
