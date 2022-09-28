@@ -165,6 +165,28 @@ class FuneralManagementDocument(models.Model):
         if attachment:
             attachment.unlink()
 
+    def action_send_email(self):
+        self.ensure_one()
+        template_id = self.env.ref('funeral_pdf_render.mail_template_funeral_management').id
+
+        ctx = {
+            'default_model': 'funeral.management',
+            'default_res_id': self.id,
+            'default_use_template': bool(template_id),
+            'default_template_id': template_id,
+            'default_attachment_ids': self.attachment_id.ids,
+            'from_funeral': True
+        }
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'mail.compose.message',
+            'views': [(False, 'form')],
+            'view_id': False,
+            'target': 'new',
+            'context': ctx,
+        }
+
 
 class ResPartnerType(models.Model):
     _name = 'res.partner.type'

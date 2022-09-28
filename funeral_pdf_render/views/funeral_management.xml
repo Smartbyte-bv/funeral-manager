@@ -112,6 +112,10 @@
                                         type="object" class="oe_highlight"
                                         attrs="{'invisible': [('attachment_id', '!=', False)]}"
                                         string="Create Document"/>
+                                <button name="action_send_email"
+                                        type="object"
+                                        attrs="{'invisible': [('attachment_id', '=', False)]}"
+                                        string="Send Email"/>
                                 <button name="action_delete_document"
                                         type="object"
                                         attrs="{'invisible': [('attachment_id', '=', False)]}"
