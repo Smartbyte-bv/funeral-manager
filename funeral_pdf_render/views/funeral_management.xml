@@ -98,7 +98,7 @@
                     </page>
                 </xpath>
 
-                <xpath expr="//page[@name='print_works']" position="after">
+                <xpath expr="//page[@name='contact_person']" position="after">
                     <page string="Documents" name="documents">
                         <field name="related_document_ids">
                             <tree editable="bottom">
