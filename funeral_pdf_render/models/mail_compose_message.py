@@ -6,6 +6,12 @@ class MailComposeMessage(models.TransientModel):
 
     @api.onchange('template_id')
     def _onchange_template_id_wrapper(self):
+        res = super(MailComposeMessage, self)._onchange_template_id_wrapper()
+
         if self._context.get('from_funeral', False):
-            return
-        return super(MailComposeMessage, self)._onchange_template_id_wrapper()
+            attachment_ids = self._context.get('default_attachment_ids')
+            current_attachment_ids = self.attachment_ids.ids
+            record_ids = current_attachment_ids + attachment_ids
+            self.attachment_ids = [(6, False, record_ids)]
+
+        return res
