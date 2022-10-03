@@ -192,6 +192,7 @@ class FuneralManagement(models.Model):
                     'signature': line.signature,
                 })
             )
+        self.get_related_document()
         self.write({
             'funeral_service_line_id': lst,
             'funeral_aula_ids': aula_lst,

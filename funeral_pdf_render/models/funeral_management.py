@@ -103,8 +103,7 @@ class FuneralManagement(models.Model):
         if documents:
             documents.unlink()
 
-    @api.onchange('service_type_id')
-    def _onchange_service_type(self):
+    def get_related_document(self):
         if not self.service_type_id:
             return
 
