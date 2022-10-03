@@ -171,7 +171,7 @@ class FuneralManagementDocument(models.Model):
 
         ctx = {
             'default_model': 'funeral.management',
-            'default_res_id': self.id,
+            'default_res_id': self.case_id.id,
             'default_use_template': bool(template_id),
             'default_template_id': template_id,
             'default_attachment_ids': self.attachment_id.ids,
