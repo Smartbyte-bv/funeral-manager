@@ -6,4 +6,3 @@ from . import ir_attachment
 from . import res_config_settings
 from . import sign_item
 from . import mail_compose_message
-from . import funeral_category_tag

@@ -10,10 +10,10 @@
     'data': [
         'security/funeral_security.xml',
         'security/ir.model.access.csv',
-        'data/sign_item_type_data.xml',
+
+        'data/partner_type_data.xml',
         'data/sign_item_type_data.xml',
         'data/mail_template_data.xml',
-        'data/funeral_category_tag.xml',
 
         'views/res_partner.xml',
         'views/service_type.xml',
@@ -21,7 +21,6 @@
         'views/res_partner_type.xml',
         'views/res_config_settings.xml',
         'views/sign_template.xml',
-        'views/funeral_category_tag.xml',
 
         'wizard/sign_template_render.xml',
     ],

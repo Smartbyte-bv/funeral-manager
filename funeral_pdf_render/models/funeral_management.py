@@ -17,15 +17,13 @@ class FuneralManagement(models.Model):
     _inherit = 'funeral.management'
 
     def get_domain_for_partner(self):
-        partner_tag_id = self.env.ref('funeral_pdf_render.funeral_category_tag_deceased_tag').id
-        record = self.env['funeral.category.tag'].browse(partner_tag_id)
-        tag_ids = record.tag_ids.ids
+        list_deceased_tags = self.env['ir.config_parameter'].sudo().get_param('funeral_pdf_render.list_deceased_tags')
+        tag_ids = self.env['service.type.document'].get_tag_ids_from_list(list_deceased_tags, model='res.partner.category')
         return [('category_id', 'in', tag_ids)]
 
     def get_domain_for_doctor(self):
-        partner_tag_id = self.env.ref('funeral_pdf_render.partner_type_doctor_tag').id
-        record = self.env['funeral.category.tag'].browse(partner_tag_id)
-        tag_ids = record.tag_ids.ids
+        list_doctor_tags = self.env['ir.config_parameter'].sudo().get_param('funeral_pdf_render.list_doctor_tags')
+        tag_ids = self.env['service.type.document'].get_tag_ids_from_list(list_doctor_tags, model='res.partner.category')
         return [('category_id', 'in', tag_ids)]
 
     partner_id = fields.Many2one('res.partner', string="Name", domain=get_domain_for_partner)
@@ -36,7 +34,9 @@ class FuneralManagement(models.Model):
     rk_number = fields.Char()
     place_of_birth = fields.Char()
     place_of_death = fields.Char()
-    last_address = fields.Text()
+    last_address = fields.Char()
+    zip_code = fields.Char()
+    city = fields.Char()
     doctor_id = fields.Many2one('res.partner', domain=get_domain_for_doctor)
     law_doctor_id = fields.Many2one('res.partner', domain=get_domain_for_doctor)
     transferred_on = fields.Date()

@@ -10,13 +10,13 @@ class ServiceType(models.Model):
 class ServiceTypeDocument(models.Model):
     _name = 'service.type.document'
 
-    def get_tag_ids_from_list(self, list_tags):
+    def get_tag_ids_from_list(self, list_tags, model):
         if not list_tags:
             return []
 
         list_tags = list_tags.split(', ')
         domain = [('name', 'in', list_tags)]
-        tags = self.env['sign.template.tag'].search(domain)
+        tags = self.env[model].search(domain)
         return tags.ids
 
     def get_domain_for_document_type(self):
@@ -25,7 +25,7 @@ class ServiceTypeDocument(models.Model):
             return []
 
         list_tags = self.env['ir.config_parameter'].sudo().get_param('funeral_pdf_render.list_tags')
-        tag_ids = self.get_tag_ids_from_list(list_tags)
+        tag_ids = self.get_tag_ids_from_list(list_tags, model='sign.template.tag')
         return [('tag_ids', 'in', tag_ids)]
 
     type_id = fields.Many2one('service.type')

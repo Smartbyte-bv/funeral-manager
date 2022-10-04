@@ -42,10 +42,15 @@
                                     <field name="place_of_death"/>
                                 </group>
                             </group>
-                            <group>
-                                <field name="last_address"/>
-                            </group>
                         </div>
+                        <group>
+                            <label for="last_address"/>
+                            <div>
+                                <field name="last_address"/>
+                                <field name="zip_code" nolabel="1" class="oe_inline"/>
+                                <field name="city" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                            </div>
+                        </group>
                         <div>
                             <group>
                                 <group>

@@ -58,6 +58,20 @@
             <field name="placeholder">Last Address</field>
         </record>
 
+        <record id="sign_item_zip_code" model="sign.item.type">
+            <field name="name">Zip Code</field>
+            <field name="auto_field">zip_code</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Zip Code</field>
+        </record>
+
+        <record id="sign_item_city" model="sign.item.type">
+            <field name="name">City</field>
+            <field name="auto_field">city</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">City</field>
+        </record>
+
         <record id="sign_item_doctor_id" model="sign.item.type">
             <field name="name">Doctor</field>
             <field name="auto_field">doctor_id.name</field>
