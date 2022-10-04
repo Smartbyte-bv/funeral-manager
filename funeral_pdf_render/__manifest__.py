@@ -11,6 +11,7 @@
         'security/funeral_security.xml',
         'security/ir.model.access.csv',
         'data/sign_item_type_data.xml',
+        'data/sign_item_type_data.xml',
         'data/mail_template_data.xml',
         'data/funeral_category_tag.xml',
 
@@ -24,9 +25,7 @@
 
         'wizard/sign_template_render.xml',
     ],
-    'demo': [
-        'data/sign_item_type_data.xml'
-    ],
+    'demo': [],
     'installable': True,
     'application': True,
     'auto_install': False,
