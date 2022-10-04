@@ -6,7 +6,7 @@
         <record id="seq_funeral_request" model="ir.sequence">
             <field name="name">Funeral Request</field>
             <field name="code">funeral.request</field>
-            <field name="prefix">REQUEST/</field>
+            <field name="prefix">CASE/</field>
             <field name="padding">6</field>
         </record>
     </data>
