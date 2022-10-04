@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="partner_type_mr" model="sign.item.type">
+            <field name="name">Mr</field>
+        </record>
+
+        <record id="partner_type_miss" model="sign.item.type">
+            <field name="name">Miss</field>
+        </record>
+
+        <record id="partner_type_mrs" model="sign.item.type">
+            <field name="name">Mrs</field>
+        </record>
+
+    </data>
+</odoo>

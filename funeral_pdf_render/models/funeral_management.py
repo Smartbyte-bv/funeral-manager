@@ -16,6 +16,19 @@ selection_option = [('yes', 'Yes'), ('no', 'No')]
 class FuneralManagement(models.Model):
     _inherit = 'funeral.management'
 
+    def get_domain_for_partner(self):
+        partner_tag_id = self.env.ref('funeral_pdf_render.funeral_category_tag_deceased_tag').id
+        record = self.env['funeral.category.tag'].browse(partner_tag_id)
+        tag_ids = record.tag_ids.ids
+        return [('category_id', 'in', tag_ids)]
+
+    def get_domain_for_doctor(self):
+        partner_tag_id = self.env.ref('funeral_pdf_render.partner_type_doctor_tag').id
+        record = self.env['funeral.category.tag'].browse(partner_tag_id)
+        tag_ids = record.tag_ids.ids
+        return [('category_id', 'in', tag_ids)]
+
+    partner_id = fields.Many2one('res.partner', string="Name", domain=get_domain_for_partner)
     related_document_ids = fields.Many2many('funeral.management.document')
     dob_weekday = fields.Char(compute='_compute_weekday', store=True)
     dod = fields.Date(string='Date Of Death')
@@ -24,8 +37,8 @@ class FuneralManagement(models.Model):
     place_of_birth = fields.Char()
     place_of_death = fields.Char()
     last_address = fields.Text()
-    doctor_id = fields.Many2one('res.partner')
-    law_doctor_id = fields.Many2one('res.partner')
+    doctor_id = fields.Many2one('res.partner', domain=get_domain_for_doctor)
+    law_doctor_id = fields.Many2one('res.partner', domain=get_domain_for_doctor)
     transferred_on = fields.Date()
     transferred_on_weekday = fields.Char(compute='_compute_weekday', store=True)
     picked_up = fields.Date()
