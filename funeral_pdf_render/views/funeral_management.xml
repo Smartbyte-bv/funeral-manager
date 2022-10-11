@@ -46,9 +46,9 @@
                         <group>
                             <label for="last_address"/>
                             <div>
-                                <field name="last_address"/>
-                                <field name="zip_code" nolabel="1" class="oe_inline"/>
-                                <field name="city" nolabel="1" class="oe_inline" style="padding-left:10px"/>
+                                <field name="last_address" placeholder="Street..."/>
+                                <field name="zip_code" nolabel="1" class="oe_inline" placeholder="ZIP"/>
+                                <field name="city" nolabel="1" class="oe_inline" style="padding-left:10px" placeholder="City"/>
                             </div>
                         </group>
                         <div>
