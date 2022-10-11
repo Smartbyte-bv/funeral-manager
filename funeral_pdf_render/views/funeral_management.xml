@@ -12,7 +12,7 @@
                     <label for="partner_id"/>
                     <div style="display:flex">
                         <field name="partner_type_id" nolabel="1" class="oe_inline" options="{'no_create': True}"/>
-                        <field name="partner_id" required="1" nolabel="1" class="oe_inline" style="padding-left:5px"/>
+                        <field name="partner_id" required="1" nolabel="1" class="oe_inline" style="padding-left:5px" context="{'create_from_funeral':True}"/>
                     </div>
                 </xpath>
 
