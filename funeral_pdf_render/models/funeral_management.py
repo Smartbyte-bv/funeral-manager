@@ -53,7 +53,7 @@ class FuneralManagement(models.Model):
     of_age = fields.Integer()
     father_deceased = fields.Boolean()
     mother_deceased = fields.Boolean()
-    partner_type_id = fields.Many2one('res.partner.type')
+    partner_type_id = fields.Many2one(related="partner_id.title")
 
     def build_dict_from_records(self, records):
         res = {}
@@ -199,8 +199,3 @@ class FuneralManagementDocument(models.Model):
             'context': ctx,
         }
 
-
-class ResPartnerType(models.Model):
-    _name = 'res.partner.type'
-
-    name = fields.Char()
