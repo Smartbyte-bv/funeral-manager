@@ -1,0 +1,612 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* funeral_pdf_render
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-11 09:01+0000\n"
+"PO-Revision-Date: 2022-10-11 09:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: funeral_pdf_render
+#: model:mail.template,body_html:funeral_pdf_render.mail_template_funeral_management
+msgid "<div/>"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "<strong># of children</strong>"
+msgstr "<strong> Aantal kinderen</strong>"
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_ir_attachment
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__attachment_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__attachment_ids
+msgid "Attachment"
+msgstr "Bijlage"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template__available_fonts
+msgid "Available Fonts"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_render_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__case_id
+msgid "Case"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__city
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_city
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_city
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "City"
+msgstr "Stad"
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_tag_res_config_settings_inherit_view_form
+msgid ""
+"Contact with these tags will only be shown in \"Doctor\" and \"Law doctor\" "
+"field in Funeral case"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_tag_res_config_settings_inherit_view_form
+msgid ""
+"Contact with these tags will only be shown in \"Name\" field in Funeral case"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Create Document"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__create_uid
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__create_uid
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__create_uid
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__create_date
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__create_date
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__create_date
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__dod
+msgid "Date Of Death"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_dob
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_dob
+msgid "Date of Birth"
+msgstr "Datum geboorte"
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_dod
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_dod
+msgid "Date of Death"
+msgstr "Datum overlijden"
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Deceased"
+msgstr "Overleden"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_config_settings__deceased_tag_ids
+msgid "Deceased Tag"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_tag_res_config_settings_inherit_view_form
+msgid "Deceased:"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Delete"
+msgstr "Verwijderen"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__description
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__description
+msgid "Description"
+msgstr "Omschrijving"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__display_name
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__display_name
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__display_name
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__display_name
+msgid "Display Name"
+msgstr "Omschrijving"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__dob_weekday
+msgid "Dob Weekday"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__doctor_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_doctor_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_doctor_id
+msgid "Doctor"
+msgstr "Dokter"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_config_settings__doctor_tag_ids
+msgid "Doctor Tag"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_tag_res_config_settings_inherit_view_form
+msgid "Doctor:"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type__document_ids
+msgid "Document"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_tag_res_config_settings_inherit_view_form
+msgid "Document with these tags will be shown in service type document"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.document_service_type_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Documents"
+msgstr "Documenten"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__dod_weekday
+msgid "Dod Weekday"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_is_dress
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_is_dress
+msgid "Dress"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Wizard e-mail opstellen"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__father_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_father_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_father_id
+msgid "Father"
+msgstr "Vader"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__father_deceased
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_father_deceased
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_father_deceased
+msgid "Father Deceased"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_sign_item
+msgid "Fields to be sign on Document"
+msgstr "Velden welke getekend moeten worden op document"
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "File"
+msgstr "Bestand"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__file
+msgid "File Content (base64)"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_item__font_name
+msgid "Font Name"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_item__font_size
+msgid "Font Size"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:mail.template,subject:funeral_pdf_render.mail_template_funeral_management
+msgid "Funeral Management Email"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:mail.template,name:funeral_pdf_render.mail_template_funeral_management
+msgid "Funeral Management Mail Template"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:res.groups,name:funeral_pdf_render.group_funeral_user
+msgid "Funeral base user"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_config_settings__config_tags
+msgid "Funeral document tag:"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_funeral_management
+msgid "FuneralManagement"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_render_view_form
+msgid "Generate"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__id
+msgid "ID"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Info"
+msgstr "Info"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__is_dress
+msgid "Is Dress"
+msgstr "Aangekleed?"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__is_statement
+msgid "Is Statement"
+msgstr "Is er een verklaring?"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__last_address
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_last_address
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_last_address
+msgid "Last Address"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document____last_update
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type____last_update
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document____last_update
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__write_uid
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__write_uid
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__write_uid
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__write_date
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__write_date
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__write_date
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__law_doctor_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_law_doctor_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_law_doctor_id
+msgid "Law Doctor"
+msgstr "Wetsdokter"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__minor
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_minor
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_minor
+msgid "Minor"
+msgstr "Minderjarig"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__mother_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_mother_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_mother_id
+msgid "Mother"
+msgstr "Moeder"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__mother_deceased
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_mother_deceased
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_mother_deceased
+msgid "Mother Deceased"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__partner_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__name
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__name
+msgid "Name"
+msgstr "Naam overledene"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields.selection,name:funeral_pdf_render.selection__funeral_management__is_dress__no
+#: model:ir.model.fields.selection,name:funeral_pdf_render.selection__funeral_management__is_statement__no
+msgid "No"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__of_age
+msgid "Of Age"
+msgstr "Meerderjarig"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner__order_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_users__order_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__order_id
+msgid "Order"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__partner_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__partner_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_partner_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_partner_id
+msgid "Partner"
+msgstr "Naam"
+
+#. module: funeral_pdf_render
+#: model:ir.actions.act_window,name:funeral_pdf_render.res_partner_type_action
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__partner_type_id
+#: model:ir.ui.menu,name:funeral_pdf_render.menu_res_partner_type
+msgid "Partner Type"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__picked_up
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_picked_up
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_picked_up
+msgid "Picked Up"
+msgstr "Datum opgehaald"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__picked_up_weekday
+msgid "Picked Up Weekday"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__place_of_birth
+msgid "Place Of Birth"
+msgstr "Geboorteplaats"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__place_of_death
+msgid "Place Of Death"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_place_of_birth
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_place_of_birth
+msgid "Place of Birth"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_place_of_death
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_place_of_death
+msgid "Place of Death"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_rk_number
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_rk_number
+msgid "RK Number"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__related_document_ids
+msgid "Related Document"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_responsible_service
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_responsible_service
+msgid "Responsible Service"
+msgstr "Verantwoordelijke dienst"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__rk_number
+msgid "Rk Number"
+msgstr "RK nummer"
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Send Email"
+msgstr "Verstuur via email"
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_service_type
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_service_type
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_service_type
+msgid "Service Type"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_sign_template
+msgid "Signature Template"
+msgstr "Handtekeningssjabloon"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__spouse_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_spouse_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_spouse_id
+msgid "Spouse"
+msgstr "echtgenoot / echtgenote"
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_is_statement
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_is_statement
+msgid "Statement"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "Street..."
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_config_settings__tag_ids
+msgid "Tag"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__template_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_ir_attachment__template_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__template_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__template_id
+msgid "Template"
+msgstr "Template"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__transferred_on
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_transferred_on
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_transferred_on
+msgid "Transferred On"
+msgstr "Datum transfer"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__transferred_on_weekday
+msgid "Transferred On Weekday"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__type_id
+msgid "Type"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__widow_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_widow_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_widow_id
+msgid "Widow"
+msgstr "Weduwe"
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields.selection,name:funeral_pdf_render.selection__funeral_management__is_dress__yes
+#: model:ir.model.fields.selection,name:funeral_pdf_render.selection__funeral_management__is_statement__yes
+msgid "Yes"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
+msgid "ZIP"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__zip_code
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_zip_code
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_zip_code
+msgid "Zip Code"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_city
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_dob
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_doctor_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_dod
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_father_deceased
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_father_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_is_dress
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_is_statement
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_last_address
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_law_doctor_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_minor
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_mother_deceased
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_mother_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_of_age
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_partner_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_picked_up
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_place_of_birth
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_place_of_death
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_responsible_service
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_rk_number
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_service_type
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_spouse_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_transferred_on
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_widow_id
+#: model:sign.item.type,tip:funeral_pdf_render.sign_item_zip_code
+msgid "fill in"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_funeral_management_document
+msgid "funeral.management.document"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_of_age
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_of_age
+msgid "of Age"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_res_partner_type
+msgid "res.partner.type"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.res_partner_type_view_form
+msgid "res_partner_type_form"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.res_partner_type_view_tree
+msgid "res_partner_type_tree"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_service_type_document
+msgid "service.type.document"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model,name:funeral_pdf_render.model_sign_template_render
+msgid "sign.template.render"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.sign_template_render_view_form
+msgid "sign_template_render_form"
+msgstr ""
