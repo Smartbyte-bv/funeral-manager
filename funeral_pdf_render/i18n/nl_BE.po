@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 09:01+0000\n"
-"PO-Revision-Date: 2022-10-11 09:01+0000\n"
+"POT-Creation-Date: 2022-10-12 08:24+0000\n"
+"PO-Revision-Date: 2022-10-12 08:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:mail.template,body_html:funeral_pdf_render.mail_template_funeral_management
-msgid "<div/>"
+msgid "<div></div>"
 msgstr ""
 
 #. module: funeral_pdf_render
@@ -85,7 +85,6 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__create_uid
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__create_uid
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__create_uid
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__create_uid
 msgid "Created by"
@@ -93,7 +92,6 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__create_date
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__create_date
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__create_date
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__create_date
 msgid "Created on"
@@ -102,13 +100,13 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__dod
 msgid "Date Of Death"
-msgstr ""
+msgstr "Datum overlijden"
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_dob
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_dob
 msgid "Date of Birth"
-msgstr "Datum geboorte"
+msgstr "Datum overlijden"
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_dod
@@ -144,7 +142,6 @@ msgstr "Omschrijving"
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__display_name
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__display_name
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__display_name
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__display_name
 msgid "Display Name"
@@ -275,7 +272,6 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__id
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__id
 msgid "ID"
@@ -284,7 +280,7 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__is_dress
@@ -305,7 +301,6 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document____last_update
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type____last_update
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document____last_update
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render____last_update
 msgid "Last Modified on"
@@ -313,7 +308,6 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__write_uid
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__write_uid
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__write_uid
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__write_uid
 msgid "Last Updated by"
@@ -321,7 +315,6 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__write_date
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__write_date
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__write_date
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__write_date
 msgid "Last Updated on"
@@ -358,7 +351,8 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__partner_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__name
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner_type__name
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_partner_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_partner_id
 msgid "Name"
 msgstr "Naam overledene"
 
@@ -383,17 +377,8 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__partner_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__partner_id
-#: model:sign.item.type,name:funeral_pdf_render.sign_item_partner_id
-#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_partner_id
 msgid "Partner"
 msgstr "Naam"
-
-#. module: funeral_pdf_render
-#: model:ir.actions.act_window,name:funeral_pdf_render.res_partner_type_action
-#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__partner_type_id
-#: model:ir.ui.menu,name:funeral_pdf_render.menu_res_partner_type
-msgid "Partner Type"
-msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__picked_up
@@ -415,19 +400,19 @@ msgstr "Geboorteplaats"
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__place_of_death
 msgid "Place Of Death"
-msgstr ""
+msgstr "Plaats van overlijden"
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_place_of_birth
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_place_of_birth
 msgid "Place of Birth"
-msgstr ""
+msgstr "Geboorteplaats"
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_place_of_death
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_place_of_death
 msgid "Place of Death"
-msgstr ""
+msgstr "Plaats van overlijden"
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_rk_number
@@ -461,7 +446,7 @@ msgstr "Verstuur via email"
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_service_type
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_service_type
 msgid "Service Type"
-msgstr ""
+msgstr "Type Dienst"
 
 #. module: funeral_pdf_render
 #: model:ir.model,name:funeral_pdf_render.model_sign_template
@@ -492,12 +477,23 @@ msgid "Tag"
 msgstr ""
 
 #. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_partner__category_id
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_res_users__category_id
+msgid "Tags"
+msgstr "Labels"
+
+#. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__template_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_ir_attachment__template_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_service_type_document__template_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__template_id
 msgid "Template"
-msgstr "Template"
+msgstr ""
+
+#. module: funeral_pdf_render
+#: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__partner_type_id
+msgid "Title"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__transferred_on
@@ -579,21 +575,6 @@ msgstr ""
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_of_age
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_of_age
 msgid "of Age"
-msgstr ""
-
-#. module: funeral_pdf_render
-#: model:ir.model,name:funeral_pdf_render.model_res_partner_type
-msgid "res.partner.type"
-msgstr ""
-
-#. module: funeral_pdf_render
-#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.res_partner_type_view_form
-msgid "res_partner_type_form"
-msgstr ""
-
-#. module: funeral_pdf_render
-#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.res_partner_type_view_tree
-msgid "res_partner_type_tree"
 msgstr ""
 
 #. module: funeral_pdf_render
