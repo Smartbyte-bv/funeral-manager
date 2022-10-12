@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-12 08:24+0000\n"
-"PO-Revision-Date: 2022-10-12 08:24+0000\n"
+"POT-Creation-Date: 2022-10-12 09:48+0000\n"
+"PO-Revision-Date: 2022-10-12 09:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,8 +47,9 @@ msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__amount_tax
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
 msgid "Amount Tax"
-msgstr ""
+msgstr "BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__amount_total
@@ -114,7 +115,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__city
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__city
 msgid "City"
-msgstr "Stad"
+msgstr ""
 
 #. module: funeral_manager
 #: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
@@ -247,7 +248,7 @@ msgstr ""
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__dob
 msgid "Date Of Birth"
-msgstr "Datum overlijden"
+msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_aula_line__description
@@ -283,7 +284,7 @@ msgstr "Datum overlijden"
 #: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__description
 #: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__display_name
 msgid "Display Name"
-msgstr "Omschrijving"
+msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__email
@@ -705,7 +706,7 @@ msgstr "Onderdeel dienst?"
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__partner_id
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__partner_id
 msgid "Partner"
-msgstr "Naam"
+msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__phone
@@ -790,11 +791,6 @@ msgid "Print Works Line"
 msgstr ""
 
 #. module: funeral_manager
-#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_priority
-msgid "Priority"
-msgstr ""
-
-#. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_aula_line__product_id
 #: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__product_id
 #: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__product_id
@@ -867,7 +863,7 @@ msgstr "Datum aanvraag"
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__responsible_service
 msgid "Responsible Service"
-msgstr "Verantwoordelijke dienst"
+msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_user_id
@@ -924,7 +920,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
 #: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_tree_view
 msgid "Service Type"
-msgstr "Type Dienst"
+msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_service_type_line
@@ -934,7 +930,7 @@ msgstr ""
 #. module: funeral_manager
 #: model:ir.ui.menu,name:funeral_manager.service_type_menu
 msgid "Service Types"
-msgstr "Type diensten"
+msgstr ""
 
 #. module: funeral_manager
 #: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
@@ -948,11 +944,6 @@ msgstr "Diensten"
 #: model:ir.model.fields,help:funeral_manager.field_funeral_contact_person__signature
 msgid "Signature"
 msgstr "Handtekening"
-
-#. module: funeral_manager
-#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_stage
-msgid "Stage"
-msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,help:funeral_manager.field_funeral_management__activity_state

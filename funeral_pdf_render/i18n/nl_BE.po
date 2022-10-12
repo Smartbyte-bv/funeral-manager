@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-12 08:24+0000\n"
-"PO-Revision-Date: 2022-10-12 08:24+0000\n"
+"POT-Creation-Date: 2022-10-12 09:34+0000\n"
+"PO-Revision-Date: 2022-10-12 09:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: funeral_pdf_render
 #: model:mail.template,body_html:funeral_pdf_render.mail_template_funeral_management
-msgid "<div></div>"
+msgid "<div/>"
 msgstr ""
 
 #. module: funeral_pdf_render
@@ -100,13 +100,13 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__dod
 msgid "Date Of Death"
-msgstr "Datum overlijden"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_dob
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_dob
 msgid "Date of Birth"
-msgstr "Datum overlijden"
+msgstr "Datum geboorte"
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_dod
@@ -296,8 +296,9 @@ msgstr "Is er een verklaring?"
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__last_address
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_last_address
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_last_address
+#: model_terms:ir.ui.view,arch_db:funeral_pdf_render.generate_template_funeral_management_form_view
 msgid "Last Address"
-msgstr ""
+msgstr "Laatste adres"
 
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document____last_update
@@ -351,8 +352,6 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__partner_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__name
-#: model:sign.item.type,name:funeral_pdf_render.sign_item_partner_id
-#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_partner_id
 msgid "Name"
 msgstr "Naam overledene"
 
@@ -377,6 +376,8 @@ msgstr ""
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management_document__partner_id
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_sign_template_render__partner_id
+#: model:sign.item.type,name:funeral_pdf_render.sign_item_partner_id
+#: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_partner_id
 msgid "Partner"
 msgstr "Naam"
 
@@ -400,19 +401,19 @@ msgstr "Geboorteplaats"
 #. module: funeral_pdf_render
 #: model:ir.model.fields,field_description:funeral_pdf_render.field_funeral_management__place_of_death
 msgid "Place Of Death"
-msgstr "Plaats van overlijden"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_place_of_birth
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_place_of_birth
 msgid "Place of Birth"
-msgstr "Geboorteplaats"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_place_of_death
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_place_of_death
 msgid "Place of Death"
-msgstr "Plaats van overlijden"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_rk_number
@@ -446,7 +447,7 @@ msgstr "Verstuur via email"
 #: model:sign.item.type,name:funeral_pdf_render.sign_item_service_type
 #: model:sign.item.type,placeholder:funeral_pdf_render.sign_item_service_type
 msgid "Service Type"
-msgstr "Type Dienst"
+msgstr ""
 
 #. module: funeral_pdf_render
 #: model:ir.model,name:funeral_pdf_render.model_sign_template
