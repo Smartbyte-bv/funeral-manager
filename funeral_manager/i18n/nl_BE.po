@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-12 09:48+0000\n"
-"PO-Revision-Date: 2022-10-12 09:48+0000\n"
+"POT-Creation-Date: 2022-10-12 10:44+0000\n"
+"PO-Revision-Date: 2022-10-12 10:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -81,17 +81,17 @@ msgstr ""
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__aula_amount_tax
 msgid "Aula Amount Tax"
-msgstr ""
+msgstr "Aula BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__aula_amount_total
 msgid "Aula Amount Total"
-msgstr ""
+msgstr "Aula Totaal incl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__aula_amount_untaxed
 msgid "Aula Amount Untaxed"
-msgstr ""
+msgstr "Aula Prijs Excl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_aula_line
@@ -115,7 +115,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__city
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__city
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #. module: funeral_manager
 #: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
@@ -126,17 +126,17 @@ msgstr "Koffietafel"
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__coffee_table_amount_tax
 msgid "Coffee Table Amount Tax"
-msgstr ""
+msgstr "Koffietafel BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__coffee_table_amount_total
 msgid "Coffee Table Amount Total"
-msgstr ""
+msgstr "Koffietafel Totaal incl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__coffee_table_amount_untaxed
 msgid "Coffee Table Amount Untaxed"
-msgstr ""
+msgstr "Koffietafel Prijs Excl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_coffee_table_line
@@ -248,7 +248,7 @@ msgstr ""
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__dob
 msgid "Date Of Birth"
-msgstr ""
+msgstr "Datum geboorte"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_aula_line__description
@@ -284,7 +284,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__description
 #: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Omschrijving"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__email
@@ -301,17 +301,17 @@ msgstr ""
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__flower_amount_tax
 msgid "Flower Amount Tax"
-msgstr ""
+msgstr "Bloemen BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__flower_amount_total
 msgid "Flower Amount Total"
-msgstr ""
+msgstr "Bloemen Totaal incl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__flower_amount_untaxed
 msgid "Flower Amount Untaxed"
-msgstr ""
+msgstr "Bloemen Prijs Excl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_funeral_flowers
@@ -610,6 +610,12 @@ msgid "New"
 msgstr ""
 
 #. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_related_field_Snpap
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_related_field_kOK83
+msgid "New Relatieveld"
+msgstr ""
+
+#. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_date_deadline
 #: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -677,17 +683,17 @@ msgstr "Andere kosten"
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__other_cost_amount_tax
 msgid "Other Cost Amount Tax"
-msgstr ""
+msgstr "Andere kosten BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__other_cost_amount_total
 msgid "Other Cost Amount Total"
-msgstr ""
+msgstr "Andere kosten Totaal incl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__other_cost_amount_untaxed
 msgid "Other Cost Amount Untaxed"
-msgstr ""
+msgstr "Andere kosten Prijs Excl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_other_cost_line
@@ -706,7 +712,7 @@ msgstr "Onderdeel dienst?"
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__partner_id
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__partner_id
 msgid "Partner"
-msgstr ""
+msgstr "Naam"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_contact_person__phone
@@ -770,17 +776,17 @@ msgstr "Drukwerk"
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__print_works_amount_tax
 msgid "Print Works Amount Tax"
-msgstr ""
+msgstr "Drukwerk BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__print_works_amount_total
 msgid "Print Works Amount Total"
-msgstr ""
+msgstr "Drukwerk Totaal incl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__print_works_amount_untaxed
 msgid "Print Works Amount Untaxed"
-msgstr ""
+msgstr "Drukwerk Prijs Excl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_print_works_line
@@ -788,6 +794,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
 #: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
 msgid "Print Works Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_priority
+msgid "Priority"
 msgstr ""
 
 #. module: funeral_manager
@@ -863,7 +874,7 @@ msgstr "Datum aanvraag"
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__responsible_service
 msgid "Responsible Service"
-msgstr ""
+msgstr "Verantwoordelijke dienst"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_user_id
@@ -920,7 +931,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
 #: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_tree_view
 msgid "Service Type"
-msgstr ""
+msgstr "Type Dienst"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_service_type_line
@@ -930,7 +941,7 @@ msgstr ""
 #. module: funeral_manager
 #: model:ir.ui.menu,name:funeral_manager.service_type_menu
 msgid "Service Types"
-msgstr ""
+msgstr "Type diensten"
 
 #. module: funeral_manager
 #: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
@@ -944,6 +955,11 @@ msgstr "Diensten"
 #: model:ir.model.fields,help:funeral_manager.field_funeral_contact_person__signature
 msgid "Signature"
 msgstr "Handtekening"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_stage
+msgid "Stage"
+msgstr ""
 
 #. module: funeral_manager
 #: model:ir.model.fields,help:funeral_manager.field_funeral_management__activity_state
@@ -976,7 +992,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__taxes_id
 #: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__taxes_id
 msgid "Tax"
-msgstr ""
+msgstr "BTW"
 
 #. module: funeral_manager
 #: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
@@ -1034,17 +1050,17 @@ msgstr "Transport"
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__transportation_amount_tax
 msgid "Transportation Amount Tax"
-msgstr ""
+msgstr "Transport BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__transportation_amount_total
 msgid "Transportation Amount Total"
-msgstr ""
+msgstr "Transport Totaal incl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__transportation_amount_untaxed
 msgid "Transportation Amount Untaxed"
-msgstr ""
+msgstr "Transport Prijs Excl. BTW"
 
 #. module: funeral_manager
 #: model:ir.model,name:funeral_manager.model_transportation_line
