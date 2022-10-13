@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="generate_template_funeral_management_form_view" model="ir.ui.view">
+            <field name="name">generate_template_funeral_management_form_view</field>
+            <field name="model">funeral.management</field>
+            <field name="inherit_id" ref="funeral_manager.funeral_management_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="replace">
+                    <label for="partner_id"/>
+                    <div style="display:flex">
+                        <field name="partner_type_id" nolabel="1" class="oe_inline" options="{'no_create': True}"/>
+                        <field name="partner_id" required="1" nolabel="1" class="oe_inline" style="padding-left:5px" context="{'create_from_funeral':True}"/>
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='responsible_service']" position="after">
+                    <field name="rk_number"/>
+                </xpath>
+
+                <xpath expr="//page[@name='services']" position="before">
+                    <page string="Info" name="info">
+                        <div>
+                            <group>
+                                <group>
+                                    <label for="dob"/>
+                                    <div>
+                                        <field name="dob_weekday" nolabel="1" class="oe_inline"/>
+                                        <field name="dob" nolabel="1" class="oe_inline" style="padding-left:5px"/>
+                                    </div>
+                                    <!---->
+                                    <label for="dod"/>
+                                    <div>
+                                        <field name="dod_weekday" nolabel="1" class="oe_inline"/>
+                                        <field name="dod" nolabel="1" class="oe_inline" style="padding-left:5px"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="place_of_birth"/>
+                                    <field name="place_of_death"/>
+                                </group>
+                            </group>
+                        </div>
+                        <group>
+                            <label for="last_address"/>
+                            <div>
+                                <field name="last_address" placeholder="Street..." string="Last Address"/>
+                                <field name="zip_code" nolabel="1" class="oe_inline" placeholder="ZIP"/>
+                                <field name="city" nolabel="1" class="oe_inline" style="padding-left:10px" placeholder="City"/>
+                            </div>
+                        </group>
+                        <div>
+                            <group>
+                                <group>
+                                    <field name="doctor_id"/>
+                                    <label for="transferred_on"/>
+                                    <div>
+                                        <field name="transferred_on_weekday" nolabel="1" class="oe_inline"/>
+                                        <field name="transferred_on" nolabel="1" class="oe_inline" style="padding-left:5px"/>
+                                    </div>
+                                    <label for="picked_up"/>
+                                    <div>
+                                        <field name="picked_up_weekday" nolabel="1" class="oe_inline"/>
+                                        <field name="picked_up" nolabel="1" class="oe_inline" style="padding-left:5px"/>
+                                    </div>
+                                    <field name="is_dress"/>
+                                </group>
+                                <group>
+                                    <field name="is_statement"/>
+                                    <field name="law_doctor_id"/>
+                                </group>
+                            </group>
+                        </div>
+                        <div>
+                            <group>
+                                <group>
+                                    <field name="spouse_id"/>
+                                    <field name="widow_id"/>
+                                </group>
+                                <group>
+                                    <group>
+                                        <strong># of children</strong>
+                                    </group>
+                                    <group>
+                                        <field name="minor"/>
+                                        <field name="of_age"/>
+                                    </group>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="father_id"/>
+                                    <field name="mother_id"/>
+                                </group>
+                                <group>
+                                    <field name="father_deceased" string="Deceased"/>
+                                    <field name="mother_deceased" string="Deceased"/>
+                                </group>
+                            </group>
+                        </div>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='contact_person']" position="after">
+                    <page string="Documents" name="documents">
+                        <field name="related_document_ids">
+                            <tree editable="bottom">
+                                <field name="template_id" readonly="1"/>
+                                <field name="description" readonly="1"/>
+                                <field name="attachment_id" invisible="1"/>
+                                <field name="name" invisible="1" force_save="1"/>
+                                <field name="file" widget="binary" class="oe_inline" filename="name" string="File"/>
+
+                                <button name="action_create_document"
+                                        type="object" class="oe_highlight"
+                                        attrs="{'invisible': [('attachment_id', '!=', False)]}"
+                                        string="Create Document"/>
+                                <button name="action_send_email"
+                                        type="object"
+                                        attrs="{'invisible': [('attachment_id', '=', False)]}"
+                                        string="Send Email"/>
+                                <button name="action_delete_document"
+                                        type="object"
+                                        attrs="{'invisible': [('attachment_id', '=', False)]}"
+                                        string="Delete"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

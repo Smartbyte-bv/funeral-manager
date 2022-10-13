@@ -8,7 +8,7 @@ class FuneralManagement(models.Model):
     _order = 'id desc'
 
     name = fields.Char(
-        string='Request Number', required=True, copy=False,
+        string='Case Number', required=True, copy=False,
         readonly=True, index=True, default=lambda self: _('New'))
     partner_id = fields.Many2one('res.partner')
     phone = fields.Char(related="partner_id.phone", readonly=0)
@@ -192,6 +192,7 @@ class FuneralManagement(models.Model):
                     'signature': line.signature,
                 })
             )
+        self.get_related_document()
         self.write({
             'funeral_service_line_id': lst,
             'funeral_aula_ids': aula_lst,
