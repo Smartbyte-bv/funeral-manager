@@ -314,7 +314,8 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Funeral Management" id="funeral_management_menu"/>
+        <menuitem name="Funeral Management" id="funeral_management_menu"
+                  web_icon="funeral_manager,static/description/icon.png"/>
         <menuitem name="Funerals" id="funerals_menu" parent="funeral_management_menu"
                   action="funeral_management_act_window"/>
 
