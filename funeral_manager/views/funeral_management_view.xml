@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Funeral Management">
                     <header>
+                        <field name="stage_id" widget="statusbar"  options="{'clickable': '1', 'fold_field': 'fold'}" />
                         <button string="Create Sale Order" name="create_sale_order" type="object"/>
                     </header>
                     <sheet>
@@ -306,12 +307,58 @@
             </field>
         </record>
 
+        <record id="funeral_management_kanban_view" model="ir.ui.view">
+            <field name="name">funeral.management.kanban</field>
+            <field name="model">funeral.management</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id"
+                        class="o_kanban_small_column o_kanban_project_tasks">
+                    <field name="id" invisible="1"/>
+                    <field name="stage_id"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="responsible_service"/>
+                    <field name="service_type_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name" widget="name_with_subtask_count"/>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <field name="partner_id" />
+                                    </div>
+                                </div>
+
+                                <div class="oe_kanban_footer">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="service_type_id" />
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="responsible_service" widget="many2one_avatar_user"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="oe_clear"></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 
         <record id="funeral_management_act_window" model="ir.actions.act_window">
             <field name="name">Funeral Management</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">funeral.management</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,form,tree</field>
         </record>
 
         <menuitem name="Funeral Management" id="funeral_management_menu"

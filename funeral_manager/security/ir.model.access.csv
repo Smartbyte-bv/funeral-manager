@@ -17,3 +17,4 @@ funeral_manager.access_contact_person,access_contact_person,funeral_manager.mode
 funeral_manager.access_funeral_contact_person,access_funeral_contact_person,funeral_manager.model_funeral_contact_person,base.group_user,1,1,1,1
 funeral_manager.access_flowers_line,access_flowers_line,funeral_manager.model_flowers_line,base.group_user,1,1,1,1
 funeral_manager.access_funeral_flowers,access_funeral_flowers,funeral_manager.model_funeral_flowers,base.group_user,1,1,1,1
+funeral_manager.access_funeral_stage,access.funeral.stage,funeral_manager.model_funeral_stage,base.group_user,1,1,1,1

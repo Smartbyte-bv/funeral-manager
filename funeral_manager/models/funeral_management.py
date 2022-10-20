@@ -60,6 +60,7 @@ class FuneralManagement(models.Model):
     sale_order_ids = fields.One2many('sale.order', 'funeral_id')
     sale_order_count = fields.Integer(compute="_compute_sale_order_count")
     invoice_count = fields.Integer(compute="_compute_invoice_count")
+    stage_id = fields.Many2one('funeral.stage')
 
     @api.depends('sale_order_ids')
     def _compute_sale_order_count(self):

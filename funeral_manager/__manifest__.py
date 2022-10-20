@@ -16,6 +16,7 @@
         'views/product_category_view.xml',
         'views/sale_order_views.xml',
         'views/account_move_views.xml',
+        'views/funeral_stage_views.xml',
     ],
     'demo': [
     ],
