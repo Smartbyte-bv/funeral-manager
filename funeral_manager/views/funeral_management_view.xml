@@ -16,13 +16,19 @@
                                     type="object"
                                     class="oe_stat_button"
                                     icon="fa-list">
-                                Sale Orders
+                                <div class="o_stat_info">
+                                    <field name="sale_order_count" class="o_stat_value"/>
+                                    <span class="o_stat_text">Sale Orders</span>
+                                </div>
                             </button>
                             <button name="action_invoice"
                                     type="object"
                                     class="oe_stat_button"
                                     icon="fa-list">
-                                Invoice
+                                <div class="o_stat_info">
+                                    <field name="invoice_count" class="o_stat_value"/>
+                                    <span class="o_stat_text">Invoice</span>
+                                </div>
                             </button>
                         </div>
                         <div class="oe_title">
@@ -66,13 +72,7 @@
                                         </tree>
                                     </field>
                                 </group>
-                                <!--
-                                                                <group>
-                                                                    <group>
-                                                                        <field name="supplement_out_of_hours"/>
-                                                                    </group>
-                                                                </group>
-                                -->
+                              
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="amount_untaxed" sum="Untaxed amount"/>
                                     <field name="amount_tax" string="Amount Tax"/>
@@ -314,7 +314,8 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Funeral Management" id="funeral_management_menu"/>
+        <menuitem name="Funeral Management" id="funeral_management_menu"
+                  web_icon="funeral_manager,static/description/icon.png"/>
         <menuitem name="Funerals" id="funerals_menu" parent="funeral_management_menu"
                   action="funeral_management_act_window"/>
 
