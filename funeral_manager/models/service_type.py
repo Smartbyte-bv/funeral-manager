@@ -7,16 +7,7 @@ class ServiceType(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
-    def init(self):
-        services = self.search([('name_service', '=', False)])
-        for service in services:
-            service.name_service = service.name
-
-    name = fields.Selection([('Begrafenis', 'Begrafenis'), ('Plechtigheid aan de urne', 'Plechtigheid aan de urne'),
-                             ('Kerkdienst aan de urne', 'Kerkdienst aan de urne'),
-                             ('Plechtigheid aan de kist', 'Plechtigheid aan de kist'),
-                             ('Enkel begraafplaats', 'Enkel begraafplaats')])
-    name_service = fields.Char(string='Name')
+    name = fields.Char(string='Name')
     notes = fields.Char()
     line_ids = fields.One2many('service.type.line', 'service_type_id')
     aula_line_ids = fields.One2many('aula.line', 'service_type_id')
