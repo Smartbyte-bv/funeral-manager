@@ -14,6 +14,8 @@
         'views/service_type_view.xml',
         # 'views/service_variant_view.xml',
         'views/product_category_view.xml',
+        'views/sale_order_views.xml',
+        'views/account_move_views.xml',
     ],
     'demo': [
     ],
