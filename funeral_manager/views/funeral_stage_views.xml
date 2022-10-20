@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record id="funeral_stage_act_window" model="ir.actions.act_window">
+            <field name="name">Stage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">funeral.stage</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Stage" id="funeral_stage_menu" parent="configuration_menu"
+                  action="funeral_stage_act_window"/>
+</odoo>
