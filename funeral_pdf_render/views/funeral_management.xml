@@ -12,7 +12,7 @@
                     <label for="partner_id"/>
                     <div style="display:flex">
                         <field name="partner_type_id" nolabel="1" class="oe_inline" options="{'no_create': True}"/>
-                        <field name="partner_id" required="1" nolabel="1" class="oe_inline" style="padding-left:5px"/>
+                        <field name="partner_id" required="1" nolabel="1" class="oe_inline" style="padding-left:5px" context="{'create_from_funeral':True}"/>
                     </div>
                 </xpath>
 
@@ -42,10 +42,15 @@
                                     <field name="place_of_death"/>
                                 </group>
                             </group>
-                            <group>
-                                <field name="last_address"/>
-                            </group>
                         </div>
+                        <group>
+                            <label for="last_address"/>
+                            <div>
+                                <field name="last_address" placeholder="Street..." string="Last Address"/>
+                                <field name="zip_code" nolabel="1" class="oe_inline" placeholder="ZIP"/>
+                                <field name="city" nolabel="1" class="oe_inline" style="padding-left:10px" placeholder="City"/>
+                            </div>
+                        </group>
                         <div>
                             <group>
                                 <group>
@@ -98,7 +103,7 @@
                     </page>
                 </xpath>
 
-                <xpath expr="//page[@name='print_works']" position="after">
+                <xpath expr="//page[@name='contact_person']" position="after">
                     <page string="Documents" name="documents">
                         <field name="related_document_ids">
                             <tree editable="bottom">
@@ -112,6 +117,10 @@
                                         type="object" class="oe_highlight"
                                         attrs="{'invisible': [('attachment_id', '!=', False)]}"
                                         string="Create Document"/>
+                                <button name="action_send_email"
+                                        type="object"
+                                        attrs="{'invisible': [('attachment_id', '=', False)]}"
+                                        string="Send Email"/>
                                 <button name="action_delete_document"
                                         type="object"
                                         attrs="{'invisible': [('attachment_id', '=', False)]}"

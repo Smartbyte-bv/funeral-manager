@@ -57,6 +57,20 @@ class FuneralManagement(models.Model):
     currency_id = fields.Many2one(related='company_id.currency_id', depends=["company_id"], store=True,
                                   ondelete="restrict")
 
+    sale_order_ids = fields.One2many('sale.order', 'funeral_id')
+    sale_order_count = fields.Integer(compute="_compute_sale_order_count")
+    invoice_count = fields.Integer(compute="_compute_invoice_count")
+
+    @api.depends('sale_order_ids')
+    def _compute_sale_order_count(self):
+        for rec in self:
+            rec.sale_order_count = len(rec.sale_order_ids)
+
+    @api.depends('sale_order_ids.invoice_ids')
+    def _compute_invoice_count(self):
+        for rec in self:
+            rec.invoice_count = len(rec.sale_order_ids.invoice_ids)
+
     @api.model
     def create(self, vals):
         if vals.get('name', _('New')) == _('New'):
@@ -192,6 +206,7 @@ class FuneralManagement(models.Model):
                     'signature': line.signature,
                 })
             )
+        self.get_related_document()
         self.write({
             'funeral_service_line_id': lst,
             'funeral_aula_ids': aula_lst,
@@ -294,7 +309,7 @@ class FuneralManagement(models.Model):
         line_price_tax =0.0
         for rec in self.funeral_flowers_ids:
             total = 0.0
-            if rec.part_of_service == 'no':
+            if rec.part_of_service == 'yes':
                 line_price += rec.price_subtotal
                 line_price_tax += rec.price_tax
                 # price_tax = sum(line_price_tax)

@@ -15,15 +15,51 @@
                     <div class="o_setting_right_pane">
                         <label for="config_tags"/>
                         <div class="text-muted">
-                            Config tags of sign templates to display when attach with case number
+                            Document with these tags will be shown in service type document
                         </div>
-                        <div class="content-group" attrs="{'invisible': [('config_tags','=',False)]}">
-                        <div class="mt16">
-                            <group>
-                                <field name="tag_ids" widget="many2many_tags"/>
-                            </group>
+                        <div class="content-group" attrs="{'invisible': [('config_tags', '=', False)]}">
+                            <div class="mt16">
+                                <group>
+                                    <field name="tag_ids" widget="many2many_tags"/>
+                                </group>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[@name='sign']" position="after">
+                <div class="row o_settings_container mt16" name="config_user_tag">
+                    <div class="col-12 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <h6>Deceased:</h6>
+                            <div class="text-muted">
+                                Contact with these tags will only be shown in "Name" field in Funeral case
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <group>
+                                        <field name="deceased_tag_ids" widget="many2many_tags"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <h6>Doctor:</h6>
+                            <div class="text-muted">
+                                Contact with these tags will only be shown in "Doctor" and "Law doctor" field in Funeral case
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <group>
+                                        <field name="doctor_tag_ids" widget="many2many_tags"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </xpath>

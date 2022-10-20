@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="funeral_manager.service_type_form_view"/>
             <field name="arch" type="xml">
 
-                <xpath expr="//page[@name='print_works']" position="after">
+                <xpath expr="//page[@name='flowers_id']" position="after">
                     <page name="documents" string="Documents">
                         <field name="document_ids" required="1" nolabel="1">
                             <tree editable="bottom">

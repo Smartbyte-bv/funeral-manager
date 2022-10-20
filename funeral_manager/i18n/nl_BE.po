@@ -1,0 +1,1173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* funeral_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-12 10:44+0000\n"
+"PO-Revision-Date: 2022-10-12 10:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_needaction
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_exception_decoration
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_state
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_type_icon
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__amount_tax
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Amount Tax"
+msgstr "BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__amount_total
+msgid "Amount Total"
+msgstr "Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__amount_untaxed
+msgid "Amount Untaxed"
+msgstr "Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_attachment_count
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Kenmerkwaarde"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Aula"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__aula_amount_tax
+msgid "Aula Amount Tax"
+msgstr "Aula BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__aula_amount_total
+msgid "Aula Amount Total"
+msgstr "Aula Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__aula_amount_untaxed
+msgid "Aula Amount Untaxed"
+msgstr "Aula Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_aula_line
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__aula_line_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Aula Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__service_type__name__begrafenis
+msgid "Begrafenis"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__name
+msgid "Case Number"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__city
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__city
+msgid "City"
+msgstr "Stad"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Coffee Table"
+msgstr "Koffietafel"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__coffee_table_amount_tax
+msgid "Coffee Table Amount Tax"
+msgstr "Koffietafel BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__coffee_table_amount_total
+msgid "Coffee Table Amount Total"
+msgstr "Koffietafel Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__coffee_table_amount_untaxed
+msgid "Coffee Table Amount Untaxed"
+msgstr "Koffietafel Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_coffee_table_line
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__coffee_table_line_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Coffee Table Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__company_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__company_id
+msgid "Company"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.ui.menu,name:funeral_manager.configuration_menu
+msgid "Configuration"
+msgstr "Instellingen"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_contact_person
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__contact_person_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__contact_person_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Contact Person"
+msgstr "Contactpersonen"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__country_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__country_id
+msgid "Country"
+msgstr "Land"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Create Invoice"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Create Sale Order"
+msgstr "Zet op offerte"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__create_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__create_date
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__currency_id
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__dob
+msgid "Date Of Birth"
+msgstr "Datum geboorte"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__description
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__display_name
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__description
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__display_name
+msgid "Display Name"
+msgstr "Omschrijving"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__email
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__email
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__email
+msgid "Email"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__service_type__name__enkel_begraafplaats
+msgid "Enkel begraafplaats"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__flower_amount_tax
+msgid "Flower Amount Tax"
+msgstr "Bloemen BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__flower_amount_total
+msgid "Flower Amount Total"
+msgstr "Bloemen Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__flower_amount_untaxed
+msgid "Flower Amount Untaxed"
+msgstr "Bloemen Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_flowers
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__flowers_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Flowers"
+msgstr "Bloemen"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_flowers_line
+msgid "Flowers Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_follower_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_partner_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__activity_type_icon
+#: model:ir.model.fields,help:funeral_manager.field_service_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__funeral_id
+#: model:ir.model.fields,field_description:funeral_manager.field_sale_order__funeral_id
+msgid "Funeral"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_aula
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_aula_ids
+msgid "Funeral Aula"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_coffee_table
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_coffee_table_ids
+msgid "Funeral Coffee Table"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_contact_person
+msgid "Funeral Contact Person"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_flowers_ids
+msgid "Funeral Flowers"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.actions.act_window,name:funeral_manager.funeral_management_act_window
+#: model:ir.ui.menu,name:funeral_manager.funeral_management_menu
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_tree_view
+msgid "Funeral Management"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_other_cost
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_other_cost_ids
+msgid "Funeral Other Cost"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_print_works
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_print_works_ids
+msgid "Funeral Print Works"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_service_line
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_service_line_id
+msgid "Funeral Service Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_transportation
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__funeral_transportation_ids
+msgid "Funeral Transportation"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_funeral_management
+msgid "FuneralManagement"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.ui.menu,name:funeral_manager.funerals_menu
+msgid "Funerals"
+msgstr "Begrafenissen"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__has_message
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__id
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__id
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__id
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__id
+msgid "ID"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_exception_icon
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__activity_exception_icon
+#: model:ir.model.fields,help:funeral_manager.field_service_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_needaction
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_unread
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_needaction
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_has_error
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_has_sms_error
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_has_error
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Invoice"
+msgstr "Factuur"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__invoice_to
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__invoice_to
+msgid "Invoice To"
+msgstr "Factureren aan"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_is_follower
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__service_type__name__kerkdienst_aan_de_urne
+msgid "Kerkdienst aan de urne"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line____last_update
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__write_uid
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__write_date
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__line_ids
+msgid "Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_main_attachment_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_has_error
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__my_activity_date_deadline
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__partner_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__name
+msgid "Name"
+msgstr "Naam overledene"
+
+#. module: funeral_manager
+#: code:addons/funeral_manager/models/funeral_management.py:0
+#: code:addons/funeral_manager/models/funeral_management.py:0
+#: code:addons/funeral_manager/models/funeral_management.py:0
+#: code:addons/funeral_manager/models/funeral_management.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_related_field_Snpap
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_related_field_kOK83
+msgid "New Relatieveld"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_date_deadline
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_summary
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__flowers_line__part_of_service__no
+#: model:ir.model.fields.selection,name:funeral_manager.selection__funeral_flowers__part_of_service__no
+msgid "No"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__notes
+msgid "Notes"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_needaction_counter
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_has_error_counter
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_needaction_counter
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_has_error_counter
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__message_unread_counter
+#: model:ir.model.fields,help:funeral_manager.field_service_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Other Cost"
+msgstr "Andere kosten"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__other_cost_amount_tax
+msgid "Other Cost Amount Tax"
+msgstr "Andere kosten BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__other_cost_amount_total
+msgid "Other Cost Amount Total"
+msgstr "Andere kosten Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__other_cost_amount_untaxed
+msgid "Other Cost Amount Untaxed"
+msgstr "Andere kosten Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_other_cost_line
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__other_cost_line_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Other Cost Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__part_of_service
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__part_of_service
+msgid "Part Of Service"
+msgstr "Onderdeel dienst?"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__partner_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__partner_id
+msgid "Partner"
+msgstr "Naam"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__phone
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__phone
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__phone
+msgid "Phone"
+msgstr "Telefoon"
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__service_type__name__plechtigheid_aan_de_kist
+msgid "Plechtigheid aan de kist"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__service_type__name__plechtigheid_aan_de_urne
+msgid "Plechtigheid aan de urne"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__price_subtotal
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__price_subtotal
+msgid "Price Subtotal"
+msgstr "Subtotaal"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__price_unit
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__price_unit
+msgid "Price Unit"
+msgstr "Eenheidsprijs"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Print Works"
+msgstr "Drukwerk"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__print_works_amount_tax
+msgid "Print Works Amount Tax"
+msgstr "Drukwerk BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__print_works_amount_total
+msgid "Print Works Amount Total"
+msgstr "Drukwerk Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__print_works_amount_untaxed
+msgid "Print Works Amount Untaxed"
+msgstr "Drukwerk Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_print_works_line
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__print_works_line_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Print Works Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_priority
+msgid "Priority"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__product_id
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__product_id
+msgid "Product"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__product_template_attribute_lines
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__product_template_attribute_lines
+msgid "Product Attributes"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_product_category
+msgid "Product Category"
+msgstr "Productcategorie"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__qty
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__qty
+msgid "Qty"
+msgstr "Hoeveelheid"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__relationship
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__relationship
+msgid "Relationship"
+msgstr "Relatie"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__request_date
+msgid "Request Date"
+msgstr "Datum aanvraag"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__responsible_service
+msgid "Responsible Service"
+msgstr "Verantwoordelijke dienst"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__activity_user_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_has_sms_error
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Sale Orders"
+msgstr "Offertes"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Service Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Service Lines"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.actions.act_window,name:funeral_manager.service_type_act_window
+#: model:ir.model,name:funeral_manager.model_service_type
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__service_type_id
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__service_type_id
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_tree_view
+msgid "Service Type"
+msgstr "Type Dienst"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_service_type_line
+msgid "Service Type Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.ui.menu,name:funeral_manager.service_type_menu
+msgid "Service Types"
+msgstr "Type diensten"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Services"
+msgstr "Diensten"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_contact_person__signature
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_contact_person__signature
+#: model:ir.model.fields,help:funeral_manager.field_contact_person__signature
+#: model:ir.model.fields,help:funeral_manager.field_funeral_contact_person__signature
+msgid "Signature"
+msgstr "Handtekening"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__x_studio_stage
+msgid "Stage"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__activity_state
+#: model:ir.model.fields,help:funeral_manager.field_service_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Subtotal"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__taxes_id
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__taxes_id
+msgid "Tax"
+msgstr "BTW"
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Title"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__price_total
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__price_total
+msgid "Total"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__price_tax
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__price_tax
+msgid "Total Tax"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Total amount"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Transportation"
+msgstr "Transport"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__transportation_amount_tax
+msgid "Transportation Amount Tax"
+msgstr "Transport BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__transportation_amount_total
+msgid "Transportation Amount Total"
+msgstr "Transport Totaal incl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__transportation_amount_untaxed
+msgid "Transportation Amount Untaxed"
+msgstr "Transport Prijs Excl. BTW"
+
+#. module: funeral_manager
+#: model:ir.model,name:funeral_manager.model_transportation_line
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__transportation_line_ids
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Transportation Line"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__activity_exception_decoration
+#: model:ir.model.fields,help:funeral_manager.field_service_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.service_type_form_view
+msgid "Unit Price"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_unread
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__message_unread_counter
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: funeral_manager
+#: model_terms:ir.ui.view,arch_db:funeral_manager.funeral_management_form_view
+msgid "Untaxed amount"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__value_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__value_ids
+msgid "Values"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_aula_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_coffee_table_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_flowers_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_aula__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_coffee_table__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_flowers__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_other_cost__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_print_works__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_service_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_transportation__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_other_cost_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_print_works_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type_line__variant_id
+#: model:ir.model.fields,field_description:funeral_manager.field_transportation_line__variant_id
+msgid "Variant"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_product_category__variant_1
+msgid "Variant 1"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_product_category__variant_2
+msgid "Variant 2"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_product_category__variant_3
+msgid "Variant 3"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_product_attribute_value__variant_price
+msgid "Variant Price"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,field_description:funeral_manager.field_funeral_management__website_message_ids
+#: model:ir.model.fields,field_description:funeral_manager.field_service_type__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields,help:funeral_manager.field_funeral_management__website_message_ids
+#: model:ir.model.fields,help:funeral_manager.field_service_type__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: funeral_manager
+#: model:ir.model.fields.selection,name:funeral_manager.selection__flowers_line__part_of_service__yes
+#: model:ir.model.fields.selection,name:funeral_manager.selection__funeral_flowers__part_of_service__yes
+msgid "Yes"
+msgstr ""

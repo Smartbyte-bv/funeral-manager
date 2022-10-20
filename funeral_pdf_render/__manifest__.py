@@ -11,18 +11,18 @@
         'security/funeral_security.xml',
         'security/ir.model.access.csv',
 
+        'data/sign_item_type_data.xml',
+        'data/mail_template_data.xml',
+
         'views/res_partner.xml',
         'views/service_type.xml',
         'views/funeral_management.xml',
-        'views/res_partner_type.xml',
         'views/res_config_settings.xml',
         'views/sign_template.xml',
 
         'wizard/sign_template_render.xml',
     ],
-    'demo': [
-        'data/sign_item_type_data.xml'
-    ],
+    'demo': [],
     'installable': True,
     'application': True,
     'auto_install': False,

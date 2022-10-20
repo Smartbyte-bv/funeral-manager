@@ -58,6 +58,20 @@
             <field name="placeholder">Last Address</field>
         </record>
 
+        <record id="sign_item_zip_code" model="sign.item.type">
+            <field name="name">Zip Code</field>
+            <field name="auto_field">zip_code</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">Zip Code</field>
+        </record>
+
+        <record id="sign_item_city" model="sign.item.type">
+            <field name="name">City</field>
+            <field name="auto_field">city</field>
+            <field name="item_type">text</field>
+            <field name="placeholder">City</field>
+        </record>
+
         <record id="sign_item_doctor_id" model="sign.item.type">
             <field name="name">Doctor</field>
             <field name="auto_field">doctor_id.name</field>
@@ -161,6 +175,17 @@
             <field name="auto_field">mother_deceased</field>
             <field name="item_type">checkbox</field>
             <field name="placeholder">Mother Deceased</field>
+        </record>
+
+        <record id="mail_template_funeral_management" model="mail.template">
+            <field name="name">Funeral Management Mail Template</field>
+            <field name="model_id" ref="funeral_pdf_render.model_funeral_management"/>
+            <field name="subject">Funeral Management Email</field>
+            <field name="email_from">"{{ object.company_id.email }}</field>
+            <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+            <field name="body_html" type="html"><div/></field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="False"/>
         </record>
 
     </data>

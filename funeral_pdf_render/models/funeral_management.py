@@ -16,6 +16,17 @@ selection_option = [('yes', 'Yes'), ('no', 'No')]
 class FuneralManagement(models.Model):
     _inherit = 'funeral.management'
 
+    def get_domain_for_partner(self):
+        list_deceased_tags = self.env['ir.config_parameter'].sudo().get_param('funeral_pdf_render.list_deceased_tags')
+        tag_ids = self.env['service.type.document'].get_tag_ids_from_list(list_deceased_tags, model='res.partner.category')
+        return [('category_id', 'in', tag_ids)]
+
+    def get_domain_for_doctor(self):
+        list_doctor_tags = self.env['ir.config_parameter'].sudo().get_param('funeral_pdf_render.list_doctor_tags')
+        tag_ids = self.env['service.type.document'].get_tag_ids_from_list(list_doctor_tags, model='res.partner.category')
+        return [('category_id', 'in', tag_ids)]
+
+    partner_id = fields.Many2one('res.partner', string="Name", domain=get_domain_for_partner)
     related_document_ids = fields.Many2many('funeral.management.document')
     dob_weekday = fields.Char(compute='_compute_weekday', store=True)
     dod = fields.Date(string='Date Of Death')
@@ -23,9 +34,11 @@ class FuneralManagement(models.Model):
     rk_number = fields.Char()
     place_of_birth = fields.Char()
     place_of_death = fields.Char()
-    last_address = fields.Text()
-    doctor_id = fields.Many2one('res.partner')
-    law_doctor_id = fields.Many2one('res.partner')
+    last_address = fields.Char()
+    zip_code = fields.Char()
+    city = fields.Char()
+    doctor_id = fields.Many2one('res.partner', domain=get_domain_for_doctor)
+    law_doctor_id = fields.Many2one('res.partner', domain=get_domain_for_doctor)
     transferred_on = fields.Date()
     transferred_on_weekday = fields.Char(compute='_compute_weekday', store=True)
     picked_up = fields.Date()
@@ -40,7 +53,7 @@ class FuneralManagement(models.Model):
     of_age = fields.Integer()
     father_deceased = fields.Boolean()
     mother_deceased = fields.Boolean()
-    partner_type_id = fields.Many2one('res.partner.type')
+    partner_type_id = fields.Many2one(related="partner_id.title")
 
     def build_dict_from_records(self, records):
         res = {}
@@ -103,8 +116,7 @@ class FuneralManagement(models.Model):
         if documents:
             documents.unlink()
 
-    @api.onchange('service_type_id')
-    def _onchange_service_type(self):
+    def get_related_document(self):
         if not self.service_type_id:
             return
 
@@ -165,8 +177,25 @@ class FuneralManagementDocument(models.Model):
         if attachment:
             attachment.unlink()
 
+    def action_send_email(self):
+        self.ensure_one()
+        template_id = self.env.ref('funeral_pdf_render.mail_template_funeral_management').id
 
-class ResPartnerType(models.Model):
-    _name = 'res.partner.type'
+        ctx = {
+            'default_model': 'funeral.management',
+            'default_res_id': self.case_id.id,
+            'default_use_template': bool(template_id),
+            'default_template_id': template_id,
+            'default_attachment_ids': self.attachment_id.ids,
+            'from_funeral': True
+        }
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'mail.compose.message',
+            'views': [(False, 'form')],
+            'view_id': False,
+            'target': 'new',
+            'context': ctx,
+        }
 
-    name = fields.Char()
