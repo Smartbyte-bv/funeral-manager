@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Funeral Management">
                     <header>
-                        <field name="stage_id" widget="statusbar"  options="{'clickable': '1'}" />
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
                         <button string="Create Sale Order" name="create_sale_order" type="object"/>
                     </header>
                     <sheet>
