@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_invoice_form">
+            <field name="name">Account Invoice</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//button[@name='open_created_caba_entries']" position="after">
+                        <field name="funeral_id" invisible="1"/>
+                        <button type="object"
+                        name="action_view_funeral"
+                        class="oe_stat_button"
+                        icon="fa-plus-square"
+                        attrs="{'invisible': [('funeral_id', '=', False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                Funeral
+                            </span>
+                        </div>
+                    </button>
+                   </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
