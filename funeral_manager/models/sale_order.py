@@ -17,3 +17,4 @@ class SaleOrder(models.Model):
             'view_id': False,
             'type': 'ir.actions.act_window',
         }
+    
