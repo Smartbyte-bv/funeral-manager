@@ -21,3 +21,4 @@ class AccountMove(models.Model):
     def _compute_funeral_id(self):
         for rec in self:
             rec.funeral_id = rec.invoice_line_ids.sale_line_ids.order_id.funeral_id
+            
