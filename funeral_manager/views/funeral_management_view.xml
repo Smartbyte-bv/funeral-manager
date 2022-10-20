@@ -72,13 +72,7 @@
                                         </tree>
                                     </field>
                                 </group>
-                                <!--
-                                                                <group>
-                                                                    <group>
-                                                                        <field name="supplement_out_of_hours"/>
-                                                                    </group>
-                                                                </group>
-                                -->
+                              
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="amount_untaxed" sum="Untaxed amount"/>
                                     <field name="amount_tax" string="Amount Tax"/>
