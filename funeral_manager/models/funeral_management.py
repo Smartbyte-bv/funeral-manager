@@ -295,7 +295,7 @@ class FuneralManagement(models.Model):
         line_price_tax =0.0
         for rec in self.funeral_flowers_ids:
             total = 0.0
-            if rec.part_of_service == 'no':
+            if rec.part_of_service == 'yes':
                 line_price += rec.price_subtotal
                 line_price_tax += rec.price_tax
                 # price_tax = sum(line_price_tax)
