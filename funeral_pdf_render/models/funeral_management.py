@@ -17,8 +17,7 @@ class FuneralManagement(models.Model):
     _inherit = 'funeral.management'
 
     def get_domain_for_partner(self):
-        list_deceased_tags = self.env['ir.config_parameter'].sudo().get_param('funeral_pdf_render.list_deceased_tags')
-        tag_ids = self.env['service.type.document'].get_tag_ids_from_list(list_deceased_tags, model='res.partner.category')
+        tag_ids = self.env['res.config.settings'].search([('company_id', '=', self.env.company.id)]).deceased_tag_ids
         return [('category_id', 'in', tag_ids)]
 
     def get_domain_for_doctor(self):
